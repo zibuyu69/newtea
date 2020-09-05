@@ -1,0 +1,97 @@
+kind: pipeline
+name: default
+
+clone:
+  disable: true  
+  
+steps:
+- name: clone
+  image: 36.11.121.52:9180/drone/plugins/git
+  commands:
+    - echo "36.9.8.18 mayun.sccba.cn" >> /etc/hosts
+    - git clone -b develop http://mayun.sccba.cn/msgroup/customer-portal
+    - pwd
+    #- ls -la
+  when:
+   branch: 
+   - develop
+   event:
+   - push
+    
+- name: build
+  image: 36.11.121.52:9180/react/node
+  commands:
+    #- npm set registry http://36.11.121.52:4873
+    - export CI=false
+    - cd customer-portal
+    #- ls -la
+    #- cd node_modules
+    #- ls -la
+    #- cd ..
+    #- npm install
+    - npm run build
+  volumes:
+  - name: modules
+    path: /drone/src/customer-portal/node_modules
+#    - /data/drone/customer-portal/node_modules:/drone/src/customer-portal/node_modules
+  when:
+   branch: 
+   - develop
+   event:
+   - push
+        
+- name: deploy
+  image: 36.11.121.52:9180/drone/plugins/scp
+  settings:
+      host:
+        - 36.8.8.21
+      username: root
+      password:
+        from_secret: app_deploy
+      port: 22
+      command_timeout: 2m
+      target: /app/frontend/portal/html
+      source:
+        - /drone/src/customer-portal/build/*
+  when:
+   branch: 
+   - develop
+   event:
+   - push
+        
+- name: ssh
+  image: 36.11.121.52:9180/drone/ssh
+  settings:
+    host:
+      - 36.8.8.21
+    username: root
+    password:
+      from_secret: app_deploy
+    port: 22
+    command_timeout: 2m
+    script:
+        - cp -Rf /app/frontend/portal/html/drone/src/customer-portal/build/* /app/frontend/portal/html       
+        - cd /portal
+        - docker-compose restart nginx1
+  when:
+   branch: 
+   - develop
+   event:
+   - push
+   
+- name: notify
+  image: 36.11.121.52:9180/drone/plugins/slack
+  settings:
+   webhook: http://36.11.121.52:8065/hooks/nqu559g6xjdkznwrnki5c6hrwr
+   template: >
+    {{#success build.status}}
+      {{repo.owner}}/{{repo.name}} build {{build.number}} 发布成功！
+      查看链接： {{build.link}}
+    {{else}}
+      {{repo.name}} build {{build.number}} 发布失败，请尽快确认。<@all>
+    {{/success}}
+
+volumes:
+- name: modules
+  host:
+    path: /data/drone/customer-portal/node_modules

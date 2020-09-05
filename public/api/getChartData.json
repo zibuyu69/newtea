@@ -1,0 +1,142 @@
+{
+  "code": 10000,
+  "msg": "操作成功!",
+  "data": {
+    "chartData": {
+      "zero": [
+        {
+          "month": "1月",
+          "acc": 54.0
+        },
+        {
+          "month": "2月",
+          "acc": 14.9
+        },
+        {
+          "month": "3月",
+          "acc": 17.0
+        },
+        {
+          "month": "4月",
+          "acc": 20.2
+        },
+        {
+          "month": "5月",
+          "acc": 55.6
+        },
+        {
+          "month": "6月",
+          "acc": 56.7
+        },
+        {
+          "month": "7月",
+          "acc": 30.6
+        },
+        {
+          "month": "8月",
+          "acc": 63.2
+        },
+        {
+          "month": "9月",
+          "acc": 24.6
+        },
+        {
+          "month": "10月",
+          "acc": 14.0
+        },
+        {
+          "month": "11月",
+          "acc": 9.4
+        },
+        {
+          "month": "12月",
+          "acc": 6.3
+        }
+      ],
+      "two": [
+        {
+          "year": "1951 年",
+          "sales": 38
+        },
+        {
+          "year": "1952 年",
+          "sales": 52
+        },
+        {
+          "year": "1956 年",
+          "sales": 61
+        },
+        {
+          "year": "1957 年",
+          "sales": 145
+        },
+        {
+          "year": "1958 年",
+          "sales": 48
+        },
+        {
+          "year": "1959 年",
+          "sales": 38
+        },
+        {
+          "year": "1960 年",
+          "sales": 38
+        },
+        {
+          "year": "1962 年",
+          "sales": 38
+        }
+      ],
+      "one": [
+        {
+          "year": "2001",
+          "population": 41.8
+        },
+        {
+          "year": "2002",
+          "population": 38
+        },
+        {
+          "year": "2003",
+          "population": 33.7
+        },
+        {
+          "year": "2004",
+          "population": 30.7
+        },
+        {
+          "year": "2005",
+          "population": 25.8
+        },
+        {
+          "year": "2006",
+          "population": 31.7
+        },
+        {
+          "year": "2007",
+          "population": 33
+        },
+        {
+          "year": "2008",
+          "population": 46
+        },
+        {
+          "year": "2009",
+          "population": 38.3
+        },
+        {
+          "year": "2010",
+          "population": 28
+        },
+        {
+          "year": "2011",
+          "population": 42.5
+        },
+        {
+          "year": "2012",
+          "population": 30.3
+        }
+      ]
+    }
+  }
+}

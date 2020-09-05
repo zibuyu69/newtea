@@ -1,0 +1,42 @@
+@import (less) "~common/globalStyle.less";
+@fontSize: 16px;
+.basicLayoutFooter {
+  width: @global-container-width;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #d8d8d8;
+  font-size: @fontSize;
+  font-family: @global-font-family;
+
+  .logo {
+    padding-right: 500px;
+    .logo_img {
+      padding-bottom: 28px;
+    }
+    .comName {
+      padding-bottom: 12px;
+    }
+  }
+  .links {
+    display: flex;
+    flex-direction: row;
+    .link_area {
+      display: flex;
+      flex-direction: column;
+      height: 140px;
+      width: 104px;
+      padding-right: 40px;
+      .link_title {
+        padding-bottom: 8px;
+      }
+      .link_contents {
+        // cursor: pointer;
+        .link_content {
+          color: #d8d8d8;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}

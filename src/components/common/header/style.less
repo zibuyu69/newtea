@@ -1,0 +1,68 @@
+@import (less) "~common/globalStyle.less";
+@betweenSpace: 12px;
+@menu-feedback-color: #1890ff;
+.header {
+  width: 100%;
+  display: flex;
+  background-color: #ffffff;
+  justify-content: center;
+  .global-shadow();
+  .menus {
+    //  margin-left: 200px;
+  }
+  .content {
+    width: @global-container-width;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      width: 37%;
+    }
+    .menuInHeader {
+      width: 120 * 3px;
+      font-weight: 800;
+    }
+    .right {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .rightEles {
+        // divider左侧元素的class定义在组件内部
+        margin-left: @betweenSpace;
+      }
+      .headerIcon {
+        .global-icon-default-style();
+      }
+      .headerDivider {
+        .global-header-divider-size();
+        margin-left: @betweenSpace+8;
+      }
+      .telphone {
+        display: flex;
+        align-items: center;
+        // > * {
+        //   // 为所有子元素设置16px右留白
+        //   margin-right: 8px;
+        // }
+      }
+    }
+  }
+}
+// .ant-menu-item-selected {
+//   border-top-width: 2px;
+//   border-top-style: solid;
+//   border-top-color: @menu-feedback-color;
+//   border-bottom-width: 0px;
+//   border-bottom-style: none;
+// }
+
+// 去掉底部默认的线条
+.ant-menu-horizontal {
+  border-bottom: 0px;
+}
+
+// .ant-drawer-content {
+//   position: relative;
+//   z-index: 900;
+// }

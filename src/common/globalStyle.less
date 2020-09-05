@@ -1,0 +1,107 @@
+/*
+ * @Author: zhaoheng
+ * @LastEditors: Please set LastEditors
+ * @Description: 定义全局样式配置，样式范围包括：字体、大小、间距、颜色、边界、对齐方式等CSS定义。
+ *      命名规范：为了保证不和局部LESS文件变量重复，定义变量时请以“global-”作为前缀。
+ *							 --样式混合加上()，为了和class选择器区分，局部less在引用时候建议加上()容易区分
+ * @Company: SCCBA
+ * @Date: 2019-06-11 11:03:56
+ * @LastEditTime: 2020-05-11 15:46:41
+ */
+
+@global-container-default-bg-color :rgb(243, 244, 247);
+
+// 字体家族 参考ANTD
+@global-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+  "PingFang sc", "Hiragino sans GB", "Microsoft YaHei", "Helvetica Neue",
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+
+// 标题中文样式  --样式混合加上()，为了和class选择器区分，局部less在引用时候建议加上()容易区分
+.global-chinese-title() {
+  font-size: 28px;
+  color: #6a6a6a;
+  font-family: @global-font-family;
+}
+
+// 标题英文样式  --样式混合加上()，为了和class选择器区分，局部less在引用时候建议加上()容易区分
+.global-english-title() {
+  font-size: 16px;
+  color: #b3b3b3;
+  font-family: @global-font-family;
+}
+
+// 页面主内容宽度（容器宽度）
+@global-container-width: 1200px;
+
+// 阴影统一样式
+.global-shadow() {
+  -webkit-box-shadow: 2px 2px 8px 1px rgba(20, 20, 20, 0.15);
+  -moz-box-shadow: 2px 2px 8px 1px rgba(20, 20, 20, 0.15);
+  box-shadow: 2px 2px 8px 1px rgba(20, 20, 20, 0.15);
+}
+
+@global-icon-default-size: 18px;
+// 全局图标默认样式
+.global-icon-default-style() {
+  font-size: @global-icon-default-size;
+  cursor: pointer;
+}
+
+// 头部垂直分割线大小，大小比图标多8px
+.global-header-divider-size() {
+  font-weight: 900;
+  font-size: @global-icon-default-size + 16;
+  position: inherit; // 上下居中
+}
+
+// 鼠标悬浮背景色
+@global-point-hover-bgColor: #e6f7ff;
+
+// 主题蓝色
+@global-blue: #003c83;
+
+// 主题蓝色
+@antd-default-blue: #1088e9;
+
+// 主题橙色
+@global-orange: #f39518;
+
+// 模块头标题默认样式
+.global-moduletitle-default-style() {
+  .ant-tabs-tab {
+    font-size: 14px;
+    font-weight: bold;
+
+    &:hover {
+      color: @global-blue;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  .ant-tabs-tab-active {
+    font-weight: bold;
+    color: @global-blue;
+  }
+  .ant-tabs-ink-bar {
+    background-color: @global-orange;
+    margin-left: 12px;
+    width: 62px !important;
+  }
+}
+
+// antd-default-blue
+@antd-default-blue : #1088e9;
+
+// 默认div模块容器样式
+.gloabl-default-container() {
+  border: solid 1px #e0e0e0;
+  background-color: #fff;
+}
+
+// 工作区宽度
+.global-workSpace-width-size() {
+  min-width: 1200px;
+  background-color: white;
+  padding: 8px;
+}

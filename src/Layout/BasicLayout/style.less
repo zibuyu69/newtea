@@ -1,0 +1,41 @@
+@import (less) "~common/globalStyle.less";
+
+.BasicLayout {
+  width: 100%;
+  height: 100%;
+  min-width: 1900px;
+
+  
+  .BasicLayout-header {
+    height: 47px;
+    width: 100%;
+    min-width: 1900px;
+    //background-color: #e8e8e8;
+    display: flex;
+    overflow: hidden;
+    .global-shadow();
+  }
+
+  .BasicLayout-center {
+    width: 100%;
+    min-height: 800px;
+    min-width: 1900px;
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    padding-top: 0;
+    margin-top: 8px;
+    background-color: #fafafa;
+  }
+
+  .BasicLayout-footer {
+    background-color: #3e3e3e;
+    width: 100%;
+    min-width: 1900px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+  }
+}

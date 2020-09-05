@@ -1,42 +1,227 @@
 {
-  "name": "newtea",
+  "name": "ra-record",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "antd": "^4.6.2",
-    "axios": "^0.20.0",
-    "less": "^3.12.2",
-    "less-loader": "^7.0.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "redux": "^4.0.5",
-    "redux-saga": "^1.1.3"
+    "@antv/g2": "^3.5.8-beta.1",
+    "@babel/core": "7.2.2",
+    "@material-ui/core": {
+      "integrity": "sha512-gqbZqpwUT5/59KTrWyA9Mr9s8NaNyfWHlEQToM1tfpiHqrIJajLVg2ZgVDzExvN985v2YQIfbuTNVzJDOnM28Q==",
+      "requires": {
+        "@babel/runtime": "^7.4.4",
+        "@material-ui/styles": "^4.7.1",
+        "@material-ui/system": "^4.7.1",
+        "@material-ui/types": "^4.1.1",
+        "@material-ui/utils": "^4.7.1",
+        "@types/react-transition-group": "^4.2.0",
+        "clsx": "^1.0.2",
+        "convert-css-length": "^2.0.1",
+        "hoist-non-react-statics": "^3.2.1",
+        "normalize-scroll-left": "^0.2.0",
+        "popper.js": "^1.14.1",
+        "prop-types": "^15.7.2",
+        "react-is": "^16.8.0",
+        "react-transition-group": "^4.3.0"
+      },
+      "resolved": "https://registry.npmjs.org/@material-ui/core/-/core-4.7.1.tgz",
+      "version": "4.7.1"
+    },
+    "@material-ui/icons": {
+      "integrity": "sha512-YZ/BgJbXX4a0gOuKWb30mBaHaoXRqPanlePam83JQPZ/y4kl+3aW0Wv9tlR70hB5EGAkEJGW5m4ktJwMgxQAeA==",
+      "requires": {
+        "@babel/runtime": "^7.4.4"
+      },
+      "resolved": "https://registry.npmjs.org/@material-ui/icons/-/icons-4.5.1.tgz",
+      "version": "4.5.1"
+    },
+    "@material-ui/styles": {
+      "integrity": "sha512-BBfxVThaPrglqHmKtSdrZJxnbFGJqKdZ5ZvDarj3HsmkteGCXsP1ohrDi5TWoa5JEJFo9S6q6NywqsENZn9rZA==",
+      "requires": {
+        "@babel/runtime": "^7.4.4",
+        "@emotion/hash": "^0.7.1",
+        "@material-ui/types": "^4.1.1",
+        "@material-ui/utils": "^4.7.1",
+        "clsx": "^1.0.2",
+        "csstype": "^2.5.2",
+        "hoist-non-react-statics": "^3.2.1",
+        "jss": "^10.0.0",
+        "jss-plugin-camel-case": "^10.0.0",
+        "jss-plugin-default-unit": "^10.0.0",
+        "jss-plugin-global": "^10.0.0",
+        "jss-plugin-nested": "^10.0.0",
+        "jss-plugin-props-sort": "^10.0.0",
+        "jss-plugin-rule-value-function": "^10.0.0",
+        "jss-plugin-vendor-prefixer": "^10.0.0",
+        "prop-types": "^15.7.2"
+      },
+      "resolved": "https://registry.npmjs.org/@material-ui/styles/-/styles-4.7.1.tgz",
+      "version": "4.7.1"
+    },
+    "@material-ui/system": {
+      "integrity": "sha512-zH02p+FOimXLSKOW/OT2laYkl9bB3dD1AvnZqsHYoseUaq0aVrpbl2BGjQi+vJ5lg8w73uYlt9zOWzb3+1UdMQ==",
+      "requires": {
+        "@babel/runtime": "^7.4.4",
+        "@material-ui/utils": "^4.7.1",
+        "prop-types": "^15.7.2"
+      },
+      "resolved": "https://registry.npmjs.org/@material-ui/system/-/system-4.7.1.tgz",
+      "version": "4.7.1"
+    },
+    "@material-ui/types": {
+      "integrity": "sha512-AN+GZNXytX9yxGi0JOfxHrRTbhFybjUJ05rnsBVjcB+16e466Z0Xe5IxawuOayVZgTBNDxmPKo5j4V6OnMtaSQ==",
+      "requires": {
+        "@types/react": "*"
+      },
+      "resolved": "https://registry.npmjs.org/@material-ui/types/-/types-4.1.1.tgz",
+      "version": "4.1.1"
+    },
+    "@material-ui/utils": {
+      "integrity": "sha512-+ux0SlLdlehvzCk2zdQ3KiS3/ylWvuo/JwAGhvb8dFVvwR21K28z0PU9OQW2PGogrMEdvX3miEI5tGxTwwWiwQ==",
+      "requires": {
+        "@babel/runtime": "^7.4.4",
+        "prop-types": "^15.7.2",
+        "react-is": "^16.8.0"
+      },
+      "resolved": "https://registry.npmjs.org/@material-ui/utils/-/utils-4.7.1.tgz",
+      "version": "4.7.1"
+    },
+    "@svgr/webpack": "4.1.0",
+    "antd": "^3.26.16",
+    "axios": "^0.19.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "9.0.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "8.0.5",
+    "babel-plugin-named-asset-import": "^0.3.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-react-app": "^7.0.2",
+    "bfj": "6.1.1",
+    "bizcharts": "^3.5.4",
+    "braft-editor": "^2.3.8",
+    "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "classnames": "^2.2.6",
+    "crypto-js": "^3.1.9-1",
+    "css-loader": "1.0.0",
+    "dotenv": "6.0.0",
+    "dotenv-expand": "4.2.0",
+    "eslint": "5.12.0",
+    "eslint-config-react-app": "^3.0.8",
+    "eslint-loader": "2.1.1",
+    "eslint-plugin-flowtype": "2.50.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.12.4",
+    "fetch": "^1.1.0",
+    "file-loader": "2.0.0",
+    "file-saver": "^2.0.2",
+    "fs-extra": "7.0.1",
+    "html-webpack-plugin": "4.0.0-alpha.2",
+    "identity-obj-proxy": "3.0.0",
+    "immutability-helper": "^3.0.2",
+    "jest": "23.6.0",
+    "jest-pnp-resolver": "1.0.2",
+    "jest-resolve": "23.6.0",
+    "jest-watch-typeahead": "^0.2.1",
+    "jszip": "^3.2.2",
+    "lodash": "^4.17.15",
+    "mini-css-extract-plugin": "0.5.0",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "pnp-webpack-plugin": "1.2.1",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-loader": "3.0.0",
+    "postcss-preset-env": "6.5.0",
+    "postcss-safe-parser": "4.0.1",
+    "react": "^16.12.0",
+    "react-app-polyfill": "^0.2.2",
+    "react-dev-utils": "^8.0.0",
+    "react-dnd": "^10.0.2",
+    "react-dnd-html5-backend": "^10.0.2",
+    "react-dom": "^16.10.2",
+    "react-pdf-js": "^5.1.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.1",
+    "resolve": "1.10.0",
+    "sass-loader": "7.1.0",
+    "style-loader": "0.23.1",
+    "styled-components": "^4.2.0",
+    "terser-webpack-plugin": "1.2.2",
+    "url-loader": "1.1.2",
+    "webpack": "4.28.3",
+    "webpack-dev-server": "3.1.14",
+    "webpack-manifest-plugin": "2.0.4",
+    "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node scripts/start.js",
+    "buildPro": "node --max_old_space_size=4096 scripts/buildPro.js",
+    "buildDev": "node --max_old_space_size=4096 scripts/buildDev.js",
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "resolver": "jest-pnp-resolver",
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "E:\\SCCBA\\future\\ra-record\\node_modules\\jest-watch-typeahead\\filename.js",
+      "E:\\SCCBA\\future\\ra-record\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "devDependencies": {
+    "crypto-js": "^3.1.9-1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0"
   }
 }
