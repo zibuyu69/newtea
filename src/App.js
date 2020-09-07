@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "antd/dist/antd.less";
+import "antd-mobile/dist/antd-mobile.css";
 import LayOut from "./layout.js";
 
 function App(props) {

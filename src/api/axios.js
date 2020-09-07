@@ -3,11 +3,11 @@
 import axios from "axios";
 // import qs from 'qs';
 // 在config.js文件中统一存放一些公共常量，方便之后维护
-import { myBaseURL, myNewUrl, myNewUrl1 } from "./config.js";
+import { myBaseURL } from "./config.js";
 
 // 添加请求拦截器，在发送请求之前做些什么(**具体查看axios文档**)--------------------------------------------
 axios.interceptors.request.use(
-  config => {
+  (config) => {
     /*     const user = JSON.parse(window.sessionStorage.getItem('access-user'));
     if (user) {
       const token = user.token;
@@ -25,7 +25,7 @@ axios.interceptors.request.use(
 
     return config;
   },
-  error => {
+  (error) => {
     // Do something with request error
     return Promise.reject(error);
   }
@@ -33,7 +33,7 @@ axios.interceptors.request.use(
 
 // / 添加响应拦截器(**具体查看axios文档**)----------------------------------------------------------------
 axios.interceptors.response.use(
-  function(response) {
+  function (response) {
     if (response.data.status === 500 || response.data.code === 10111) {
       window.sessionStorage.setItem("token", "");
       window.sessionStorage.setItem("loginId", "");
@@ -43,7 +43,7 @@ axios.interceptors.response.use(
     // 如果只需要返回体中数据，则如下，如果需要全部，则 return response 即可
     return response;
   },
-  function(error) {
+  function (error) {
     // 对响应错误做点什么
     return Promise.reject(error);
   }
@@ -56,9 +56,9 @@ const mockResponse = {
     msg: "http请求失败，统一进行拦截并模拟后端数据",
     data: {
       list: [],
-      entity: {}
-    }
-  }
+      entity: {},
+    },
+  },
 };
 function errorState(response, httpInfo) {
   console.log(
@@ -94,14 +94,8 @@ function successState(res) {
 
 // 封装axios--------------------------------------------------------------------------------------
 function apiAxios(method, url, params, newType) {
-  let baseURL;
-  if (newType === "newType") {
-    baseURL = myNewUrl;
-  } else if (newType === "newType1") {
-    baseURL = myNewUrl1;
-  } else {
-    baseURL = myBaseURL;
-  }
+  let baseURL = myBaseURL;
+
   //  = newType ? myNewUrl : myBaseURL;
 
   const httpDefault = {
@@ -113,20 +107,20 @@ function apiAxios(method, url, params, newType) {
     // `data` 是作为请求主体被发送的数据
     params: method === "GET" || method === "DELETE" ? params : null,
     data: method === "POST" || method === "PUT" ? params : null,
-    validateStatus: function(status) {
+    validateStatus: function (status) {
       return status < 600; // 状态码在大于或等于600时才会 reject
-    }
+    },
   };
 
   // 注意**Promise**使用(Promise首字母大写)
   return new Promise((resolve, reject) => {
     axios(httpDefault)
       // 此处的.then属于axios
-      .then(response => {
+      .then((response) => {
         successState(response);
         resolve(response);
       })
-      .catch(response => {
+      .catch((response) => {
         errorState(response, httpDefault);
         reject(response);
         return "aaa";
@@ -139,17 +133,6 @@ apiUtil.getAxios = (url, params) => apiAxios("GET", url, params);
 apiUtil.postAxios = (url, params) => apiAxios("POST", url, params);
 apiUtil.putAxios = (url, params) => apiAxios("PUT", url, params);
 apiUtil.delectAxios = (url, params) => apiAxios("DELECT", url, params);
-
-// 必须分两个接口请求
-apiUtil.getAxiosUrl = (url, params) => apiAxios("GET", url, params, "newType");
-apiUtil.postAxiosUrl = (url, params) =>
-  apiAxios("POST", url, params, "newType");
-
-// 现在要三个个接口请求
-apiUtil.getAxiosUrl1 = (url, params) =>
-  apiAxios("GET", url, params, "newType1");
-apiUtil.postAxiosUrl1 = (url, params) =>
-  apiAxios("POST", url, params, "newType1");
 
 export default apiUtil;
 // 输出函数getAxios、postAxios、putAxios、delectAxios，供其他文件调用-----------------------------

@@ -88,6 +88,7 @@
     },
     "@svgr/webpack": "4.1.0",
     "antd": "^3.26.16",
+    "antd-mobile": "^2.3.3",
     "axios": "^0.19.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -210,8 +211,8 @@
       "node"
     ],
     "watchPlugins": [
-      "E:\\SCCBA\\future\\ra-record\\node_modules\\jest-watch-typeahead\\filename.js",
-      "E:\\SCCBA\\future\\ra-record\\node_modules\\jest-watch-typeahead\\testname.js"
+      "E:\\li\\future\\ra-record\\node_modules\\jest-watch-typeahead\\filename.js",
+      "E:\\li\\future\\ra-record\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
   },
   "babel": {
