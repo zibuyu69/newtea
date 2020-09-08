@@ -5,7 +5,7 @@ import "./style.less";
 import * as actionCreators from "./store/actionCreators";
 import { Spin, Button } from "antd";
 
-function Home(props) {
+function NewsList(props) {
   const { loading, history } = props;
 
   const testClick = () => {
@@ -15,17 +15,8 @@ function Home(props) {
     });
   };
   return (
-    <div className="Home">
-      <div className="title">
-        HomeHomeHome
-        <Button
-          onClick={() => {
-            history.push("/b/login");
-          }}
-        >
-          退出
-        </Button>
-      </div>
+    <div className="NewsList">
+      <div className="title">/newsList/newsList/newsList</div>
     </div>
   );
 }
@@ -42,4 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   } */
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Home));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(NewsList));

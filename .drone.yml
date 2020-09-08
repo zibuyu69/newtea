@@ -8,8 +8,7 @@ steps:
 - name: clone
   image: 36.11.121.52:9180/drone/plugins/git
   commands:
-    - echo "36.9.8.18 mayun.sccba.cn" >> /etc/hosts
-    - git clone -b develop http://mayun.sccba.cn/msgroup/customer-portal
+   
     - pwd
     #- ls -la
   when:

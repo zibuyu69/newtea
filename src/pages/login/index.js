@@ -27,16 +27,17 @@ function Login(props) {
     });
   };
   const login = () => {
-    history.push("/");
+    window.sessionStorage.setItem("token", "222");
+    history.push("/home");
   };
   const onChange = (files, type, index) => {
     console.log(files, type, index);
     setData(files);
   };
   return (
-    <div className="test">
+    <div className="login">
       <div className="title">
-        LoginLoginLoginLogin
+        <Link to="/newsList"> /newsList/newsList/newsList</Link>
         <Button onClick={login}>登录</Button>
         <WingBlank>
           <ImagePicker

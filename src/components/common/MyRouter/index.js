@@ -3,6 +3,7 @@ import BasicLayout from "../../../Layout/BasicLayout";
 import BlankLayout from "../../../Layout/BlankLayout";
 import Login from "../../../pages/login";
 import Home from "../../../pages/home";
+import NewsList from "../../../pages/newsList";
 
 export default {
   blankLayout: {
@@ -21,10 +22,15 @@ export default {
     layout: BasicLayout,
     route: [
       {
-        path: "/",
+        path: "/home",
         component: Home,
         onHeader: true,
         name: "首页",
+      },
+      {
+        path: "/newsList",
+        component: NewsList,
+        name: "新闻列表",
       },
     ],
   },

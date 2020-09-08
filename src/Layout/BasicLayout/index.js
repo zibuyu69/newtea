@@ -16,12 +16,9 @@ function BasicLayout(props) {
   if (sessionStorage.getItem("token")) {
     return (
       <div className="BasicLayout">
-        <Tooltip placement="right" title="返回顶部">
-          <BackTop />
-        </Tooltip>
-        <div className="BasicLayout-header">
+        {/*   <div className="BasicLayout-header">
           <Header routerManger={props.routerManger} />
-        </div>
+        </div> */}
         <div className="BasicLayout-center">
           <RouteView routerManger={props.routerManger} />
         </div>
