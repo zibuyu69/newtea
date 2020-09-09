@@ -1,5 +1,5 @@
 import React from "react";
-import { notification } from "antd";
+import { notification, Button } from "antd";
 import "./style.less";
 import { connect } from "react-redux";
 import { linkItemsMock } from "./linkItemsMock";
@@ -12,7 +12,13 @@ function Footer(props) {
       description: help
     }); */
   };
-  return <div className="basicLayoutFooter">footer</div>;
+  return <div className="basicLayoutFooter">
+    <div className="text">
+      <Link to="/home" >
+        主页
+      </Link>
+    </div>
+  </div>;
 }
 const mapStateToProps = (state, ownProps) => {
   return {

@@ -3,28 +3,37 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./style.less";
 import * as actionCreators from "./store/actionCreators";
-import { Spin, Button } from "antd";
+import { Carousel, Button } from "antd";
+import img1 from '../../assets/photo/ED01.jpg'
+import img2 from '../../assets/photo/ED02.png'
+import img3 from '../../assets/photo/ED03.png'
+import img4 from '../../assets/photo/ED04.png'
+import img5 from '../../assets/photo/ED06.png'
 
 function Home(props) {
-  const { loading, history } = props;
-
-  const testClick = () => {
-    props.mergeData({
-      type: "registerReducer/MERGE_DATA",
-      payload: { test: props.state.test + 1 },
-    });
-  };
   return (
     <div className="Home">
-      <div className="title">
-        HomeHomeHome
-        <Button
-          onClick={() => {
-            history.push("/b/login");
-          }}
-        >
-          退出
-        </Button>
+      <div className="carousel">
+        <Carousel autoplay>
+          <div>
+            <img className="img" src={img1} />
+          </div>
+          <div>
+            <img className="img" src={img2} />
+          </div>
+          <div>
+            <img className="img" src={img3} />
+          </div>
+          <div>
+            <img className="img" src={img4} />
+          </div>
+          <div>
+            <img className="img" src={img5} />
+          </div>
+        </Carousel>,
+      </div>
+      <div>
+
       </div>
     </div>
   );
