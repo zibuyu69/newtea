@@ -1,18 +1,21 @@
-.NewsList {
-  width: 1200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .title {
-    font-weight: bold;
-    font-size: 24px;
-    text-align: center;
-    margin: 8px 0;
-  }
-  .top {
-    width: 100%;
+@media screen and (max-width: 840px) {
+  .NewsList {
+    width: 100vw;
     display: flex;
-    justify-content: flex-end;
-    margin: 8px 0;
+    flex-direction: column;
+    align-items: center;
+    .title {
+      width: 100vw;
+    }
+    .NewsList_tooltip{
+      width: 50vw;
+    }
+    .am-grid-icon {
+      width: 40px;
+      height: 60px;
+    }
   }
+}
+.NewsList_tooltip{
+  width: 50vw;
 }
