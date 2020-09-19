@@ -37,14 +37,13 @@ function Login(props) {
   return (
     <div className="login">
       <div className="title">
-        <Link to="/newsList"> /newsList/newsList/newsList</Link>
-        <Button onClick={login}>登录</Button>
         <WingBlank>
-          <ImagePicker
+          <Button onClick={login}>登录</Button>{" "}
+          {/* <ImagePicker
             files={data}
             onChange={onChange}
             onImageClick={(index, fs) => console.log(index, fs)}
-          />
+          /> */}
         </WingBlank>
       </div>
     </div>

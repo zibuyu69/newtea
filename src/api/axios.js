@@ -16,8 +16,8 @@ axios.interceptors.request.use(
  */
     // console.log("axios", window.sessionStorage.getItem("token"));
 
-    config.headers.common.token =
-      window.sessionStorage.getItem("token") || "no token";
+    /*  config.headers.common.token =
+      window.sessionStorage.getItem("token") || "no token"; */
     // console.dir(config);
     if (!!window.ActiveXObject || "ActiveXObject" in window) {
       config.headers.common["Access-Control-Request-Headers"] = "accept";

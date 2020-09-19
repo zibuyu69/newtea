@@ -4,6 +4,7 @@ import BlankLayout from "../../../Layout/BlankLayout";
 import Login from "../../../pages/login";
 import Home from "../../../pages/home";
 import NewsList from "../../../pages/newsList";
+import Company from "../../../pages/company";
 
 export default {
   blankLayout: {
@@ -31,6 +32,11 @@ export default {
         path: "/newsList",
         component: NewsList,
         name: "新闻列表",
+      },
+      {
+        path: "/company",
+        component: Company,
+        name: "公司信息",
       },
     ],
   },

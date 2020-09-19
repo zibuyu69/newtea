@@ -5,7 +5,7 @@ import * as globalActionCreators from "./globalActionCreators";
 import apiUtil from "apiUtil/axios";
 import { showErr, showSuccess } from "../../common/tools";
 
-axios.defaults.withCredentials = true;
+/* axios.defaults.withCredentials = true; */
 
 // 获取是否有后台管理权限
 function* getPermission(action) {
@@ -19,8 +19,8 @@ function* getPermission(action) {
       yield put({
         type: globalConstants.MERGE_DATA,
         payload: {
-          hasPermission: res.data.data
-        }
+          hasPermission: res.data.data,
+        },
       });
     } else {
       showErr(res, "/permissionApi/permission/role/hasSystemRole");
@@ -41,8 +41,8 @@ function* getMenu(action) {
       yield put({
         type: globalConstants.MERGE_DATA,
         payload: {
-          menu: res.data.data
-        }
+          menu: res.data.data,
+        },
       });
     } else {
       showErr(res, "/permissionApi/permission/menu/getMenuTreeBySystem");
@@ -63,8 +63,8 @@ function* getButton(action) {
       yield put({
         type: globalConstants.MERGE_DATA,
         payload: {
-          button: res.data.data
-        }
+          button: res.data.data,
+        },
       });
     } else {
       showErr(res, "/permissionApi/permission/menu/getMenuFunction");
@@ -85,8 +85,8 @@ function* getMenuTree(action) {
       yield put({
         type: globalConstants.MERGE_DATA,
         payload: {
-          menuTree: res.data.data
-        }
+          menuTree: res.data.data,
+        },
       });
     } else {
       showErr(res, "/permissionApi/permission/menu/getMenuTreeBySystem");
@@ -100,5 +100,4 @@ export default function* globalSagas() {
   yield takeEvery(globalConstants.GET_MENU, getMenu);
   yield takeEvery(globalConstants.GET_BUTTON, getButton);
   yield takeEvery(globalConstants.GET_MENU_TREE, getMenuTree);
-
 }
