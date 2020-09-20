@@ -6,6 +6,9 @@ import Home from "../../../pages/home";
 import NewsList from "../../../pages/newsList";
 import Company from "../../../pages/company";
 
+import QueryHome from "../../../pages/queryhome";
+import UseCompany from "../../../pages/usecompany";
+
 export default {
   blankLayout: {
     path: "/b",
@@ -15,6 +18,21 @@ export default {
         path: "/login",
         component: Login,
         name: "登录页",
+      },
+      {
+        path: "/queryhome",
+        component: QueryHome,
+        name: "搜索主页",
+      },
+      {
+        path: "/company",
+        component: Company,
+        name: "公司信息",
+      },
+      {
+        path: "/usecompany",
+        component: UseCompany,
+        name: "授权企业",
       },
     ],
   },

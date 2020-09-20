@@ -17,7 +17,7 @@ import {
 import img1 from "../../assets/company/品品香公司总部.png";
 import img2 from "../../assets/company/品品香河山庄园.png";
 import img3 from "../../assets/company/品品香有机茶园.png";
-import img4 from "../../assets/company/品品香白茶文化体验馆.png";
+import img4 from "../../assets/company/品品香普洱文化体验馆.png";
 import img5 from "../../assets/company/品品香实验室.png";
 
 import img6 from "../../assets/company/主要产品.png";
@@ -107,7 +107,7 @@ function Company(props) {
           <img src={img3} style={{ width: "100%", height: "200px" }} />
           <div className="info_line">品品香有机茶园</div>
           <img src={img4} style={{ width: "100%", height: "200px" }} />
-          <div className="info_line">品品香白茶文化体验馆</div>
+          <div className="info_line">品品香普洱文化体验馆</div>
           <img src={img5} style={{ width: "100%", height: "200px" }} />
           <div className="info_line">品品香实验室</div>
           {/* 444 */}

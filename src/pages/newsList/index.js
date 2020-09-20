@@ -13,9 +13,9 @@ import {
   WingBlank,
 } from "antd-mobile";
 
-import img1 from "../../assets/newList/白茶知识.jpg";
-import img2 from "../../assets/newList/白茶资讯.jpg";
-import img3 from "../../assets/newList/白茶诗文.jpg";
+import img1 from "../../assets/newList/普洱知识.jpg";
+import img2 from "../../assets/newList/普洱资讯.jpg";
+import img3 from "../../assets/newList/普洱诗文.jpg";
 import img4 from "../../assets/newList/公告栏.jpg";
 import img5 from "../../assets/newList/茶企动态.jpg";
 
@@ -44,13 +44,13 @@ function NewsList(props) {
   const allMenu = () => {
     return (
       <Card>
-        <Card.Grid style={gridStyle}>白茶知识</Card.Grid>
-        <Card.Grid style={gridStyle}>白茶资讯</Card.Grid>
-        <Card.Grid style={gridStyle}>白茶诗文</Card.Grid>
+        <Card.Grid style={gridStyle}>普洱知识</Card.Grid>
+        <Card.Grid style={gridStyle}>普洱资讯</Card.Grid>
+        <Card.Grid style={gridStyle}>普洱诗文</Card.Grid>
         <Card.Grid style={gridStyle}>公告栏</Card.Grid>
         <Card.Grid style={gridStyle}>茶企动态</Card.Grid>
         <Card.Grid style={gridStyle}>茶与健康</Card.Grid>
-        <Card.Grid style={gridStyle}>白茶视频</Card.Grid>
+        <Card.Grid style={gridStyle}>普洱视频</Card.Grid>
         <Card.Grid style={gridStyle}>茶旅结合</Card.Grid>
       </Card>
     );

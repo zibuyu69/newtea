@@ -38,7 +38,16 @@ function Login(props) {
     <div className="login">
       <div className="title">
         <WingBlank>
-          <Button onClick={login}>登录</Button>{" "}
+          <Button onClick={login}>新闻主页</Button>
+          <br />
+          <Button
+            onClick={() => {
+              history.push("/b/queryhome");
+            }}
+          >
+            搜索主页
+          </Button>
+
           {/* <ImagePicker
             files={data}
             onChange={onChange}
