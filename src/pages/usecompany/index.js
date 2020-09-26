@@ -7,11 +7,13 @@ import { Select, Icon, Divider } from "antd";
 import { NavBar, WingBlank, SegmentedControl, Button } from "antd-mobile";
 import * as CONST from "./CONST";
 import QueryFooter from "../../components/basic/queryFooter";
+import * as NAME_CONST from "../queryhome/CONST";
+import { truncate } from "lodash";
 
 const { Option } = Select;
 
 function UseCompany(props) {
-  const { history, allData } = props;
+  const { history, allData, match } = props;
   const [value, setValue] = useState("");
   const [options, setOptions] = useState([]);
 
@@ -21,7 +23,7 @@ function UseCompany(props) {
 
   // 跳转
   const toJump = (item) => {
-    history.push("/company");
+    history.push(`/b/company/${item.id}`);
   };
 
   // 文本框变化的值
@@ -50,7 +52,11 @@ function UseCompany(props) {
               history.go(-1);
             }}
           >
-            福鼎白茶证明商标使用授权企业
+            {NAME_CONST.nameList.map((item) => {
+              if (item.to === match.path.split("/")[2]) {
+                return item.name;
+              }
+            })}
           </NavBar>
         </div>
 
@@ -68,7 +74,11 @@ function UseCompany(props) {
             notFoundContent={null}
           >
             {options.map((item) => {
-              return <Option key={item.id}>{item.name}</Option>;
+              return (
+                <Option key={item.id} onClick={() => toJump(item)}>
+                  {item.name}
+                </Option>
+              );
             })}
           </Select>
           <div className="title">

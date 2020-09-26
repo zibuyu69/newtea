@@ -6,17 +6,16 @@ import { showErr, showSuccess } from "../../../common/tools";
 // 获得所有数据
 function* getAllData(action) {
   try {
-    const res = yield apiUtil.getAxios("/origin/content/findAll");
+    const res = yield apiUtil.getAxios("/origin/content/findByCategory");
     if (res.data.code === 10000) {
       yield put({
         type: constants.MERGE_DATA,
         payload: {
           allData: res.data.data.list,
-          title: res.data.data.title,
         },
       });
     } else {
-      showErr(res, "/projectBudgetItem/getProjectBudgetInfo");
+      showErr(res, "/origin/content/findByCategory");
     }
   } catch (error) {
     console.error(error);

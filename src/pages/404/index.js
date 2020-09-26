@@ -11,7 +11,7 @@ export default function NoMatch(props) {
         title="404"
         subTitle="对不起，您请求的地址未找到"
         extra={
-          <Link to="/">
+          <Link to="/home">
             <Button type="primary"> 返回主页 </Button>
           </Link>
         }

@@ -20,14 +20,10 @@ import 白茶5 from "../../assets/queryhome/白茶5.jpg";
 function QueryHome(props) {
   const { history } = props;
 
-  const onClick = (path) => {
-    history.push("/newsList");
-  };
-
   return (
     <div className="QueryHome">
       <div className="top">
-        <img src={logo} />
+        <img src={logo} style={{ height: "16vw" }} />
       </div>
 
       <div className="top_list">
@@ -37,13 +33,13 @@ function QueryHome(props) {
               className="top_cell"
               key={item.name}
               onClick={() => {
-                history.push("/b/usecompany");
+                history.push(`/b/${item.to}`);
               }}
             >
               <div className="top_icon">
                 <Icon
                   type={item.icon}
-                  style={{ fontSize: "24px", color: item.color }}
+                  style={{ fontSize: "8vw", color: item.color }}
                 />
               </div>
 
@@ -57,25 +53,25 @@ function QueryHome(props) {
       <div className="carousel">
         <Carousel autoplay>
           <div>
-            <img className="img" src={荣誉} style={{ height: "160px" }} />
+            <img className="img" src={荣誉} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={荣誉1} style={{ height: "160px" }} />
+            <img className="img" src={荣誉1} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={白茶1} style={{ height: "160px" }} />
+            <img className="img" src={白茶1} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={白茶2} style={{ height: "160px" }} />
+            <img className="img" src={白茶2} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={白茶3} style={{ height: "160px" }} />
+            <img className="img" src={白茶3} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={白茶4} style={{ height: "160px" }} />
+            <img className="img" src={白茶4} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={白茶5} style={{ height: "160px" }} />
+            <img className="img" src={白茶5} style={{ height: "26vwx" }} />
           </div>
         </Carousel>
       </div>

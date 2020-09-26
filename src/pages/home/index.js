@@ -37,50 +37,36 @@ const randomcol = () => colors[parseInt(Math.random() * colors.length)];
 const list = [
   {
     title: "普洱知识",
-    path: "",
+    path: "2",
     img: 普洱知识,
   },
   {
     title: "普洱资讯",
-    path: "",
+    path: "1",
     img: 普洱资讯,
   },
   {
-    title: "普洱诗文",
-    path: "",
+    title: "普洱展示",
+    path: "3",
     img: 普洱诗文,
+  },
+
+  {
+    title: "普洱文旅",
+    path: "4",
+    img: 茶旅结合,
   },
   {
     title: "公告栏",
-    path: "",
+    path: "5",
     img: 公告栏,
-  },
-  {
-    title: "茶企动态",
-    path: "",
-    img: 茶企动态,
-  },
-  {
-    title: "茶与健康",
-    path: "",
-    img: 茶与健康,
-  },
-  {
-    title: "普洱视频",
-    path: "",
-    img: 普洱视频,
-  },
-  {
-    title: "茶旅结合",
-    path: "",
-    img: 茶旅结合,
   },
 ];
 function Home(props) {
   const { history } = props;
 
   const onClick = (path) => {
-    history.push("/newsList");
+    history.push(`/newsList/${path}`);
   };
 
   const showCard = (list) => {
@@ -95,7 +81,7 @@ function Home(props) {
             <div className="title">{item.title}</div>
             {item.text ? <div className="text">{item.text}</div> : null}
             <div className="icon">
-              <Icon style={{ fontSize: 24 }} type="right-circle" />
+              <Icon style={{ fontSize: "3vw" }} type="right-circle" />
             </div>
           </div>
         </div>
@@ -109,19 +95,19 @@ function Home(props) {
       <div className="carousel">
         <Carousel autoplay>
           <div>
-            <img className="img" src={img1} style={{ height: "160px" }} />
+            <img className="img" src={img1} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={img2} style={{ height: "160px" }} />
+            <img className="img" src={img2} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={img3} style={{ height: "160px" }} />
+            <img className="img" src={img3} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={img4} style={{ height: "160px" }} />
+            <img className="img" src={img4} style={{ height: "26vw" }} />
           </div>
           <div>
-            <img className="img" src={img5} style={{ height: "160px" }} />
+            <img className="img" src={img5} style={{ height: "26vw" }} />
           </div>
         </Carousel>
         ,

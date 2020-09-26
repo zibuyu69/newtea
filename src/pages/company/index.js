@@ -13,6 +13,7 @@ import {
   WhiteSpace,
   WingBlank,
 } from "antd-mobile";
+import ComponentFooter from "../../components/basic/componentFooter";
 
 import img1 from "../../assets/company/品品香公司总部.png";
 import img2 from "../../assets/company/品品香河山庄园.png";
@@ -26,27 +27,21 @@ import img7 from "../../assets/company/主要产品1.png";
 const { Paragraph } = Typography;
 
 function Company(props) {
-  const { loading, history } = props;
-  const [toShow, setToShow] = useState(false); // 是否展示更多菜单
-  useEffect(() => {
-    /* props.getallData(); */
-  }, []);
+  const { loading, history, match } = props;
 
-  // 点击更多
-  const showMore = () => {
-    setToShow(!toShow);
-  };
+  useEffect(() => {
+    props.getallData({ id: match.params.id });
+  }, [match.params.id]);
 
   return (
     <div className="Company">
       <div className="top">
         <NavBar
-          mode="light"
-          icon={<Icon type="arrow-left" />}
+          mode="dark"
+          icon={<Icon type="left" />}
           onLeftClick={() => {
             history.go(-1);
           }}
-          rightContent={[<Icon key="sync" type="sync" /* spin */ />]}
         >
           福建品品香茶叶有限公司
         </NavBar>
@@ -134,12 +129,13 @@ function Company(props) {
           })}
         </div>
       </WingBlank>
+      <ComponentFooter />
     </div>
   );
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  // state: state.registerReducer
+  ...state.CompanyReducer,
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
   mergeData: (data) => {

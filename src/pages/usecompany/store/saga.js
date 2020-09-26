@@ -6,7 +6,10 @@ import { showErr, showSuccess } from "../../../common/tools";
 // 获得所有数据
 function* getAll(action) {
   try {
-    const res = yield apiUtil.getAxios("/origin/company/findById");
+    const res = yield apiUtil.getAxios(
+      "/origin/companyinfo/findAll",
+      action.data
+    );
     if (res.data.code === 10000) {
       yield put({
         type: constants.MERGE_DATA,
@@ -15,7 +18,7 @@ function* getAll(action) {
         },
       });
     } else {
-      showErr(res, "/origin/company/findAll");
+      showErr(res, "/origin/companyinfo/findAll");
     }
   } catch (error) {
     console.error(error);

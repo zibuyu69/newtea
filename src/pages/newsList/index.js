@@ -22,11 +22,13 @@ import img5 from "../../assets/newList/茶企动态.jpg";
 const { Paragraph } = Typography;
 
 function NewsList(props) {
-  const { loading, history } = props;
+  const { loading, history, match } = props;
+
   const [toShow, setToShow] = useState(false); // 是否展示更多菜单
+  let car;
   useEffect(() => {
-    props.getallData();
-  }, []);
+    props.getallData({ category: match.params.id });
+  }, [match.params.id]);
 
   const gridStyle = {
     width: "50%",
@@ -40,18 +42,33 @@ function NewsList(props) {
   const showMore = () => {
     setToShow(!toShow);
   };
+
+  // 跳转
+  const jump = (id) => {
+    history.push(`/newsList/${id}`);
+    //  window.location.href = `/newsList/${id}`
+    setToShow(!toShow);
+  };
+
   // 所有的菜单
   const allMenu = () => {
     return (
       <Card>
-        <Card.Grid style={gridStyle}>普洱知识</Card.Grid>
-        <Card.Grid style={gridStyle}>普洱资讯</Card.Grid>
-        <Card.Grid style={gridStyle}>普洱诗文</Card.Grid>
-        <Card.Grid style={gridStyle}>公告栏</Card.Grid>
-        <Card.Grid style={gridStyle}>茶企动态</Card.Grid>
-        <Card.Grid style={gridStyle}>茶与健康</Card.Grid>
-        <Card.Grid style={gridStyle}>普洱视频</Card.Grid>
-        <Card.Grid style={gridStyle}>茶旅结合</Card.Grid>
+        <Card.Grid style={gridStyle} onClick={() => jump(2)}>
+          普洱知识
+        </Card.Grid>
+        <Card.Grid style={gridStyle} onClick={() => jump(1)}>
+          普洱资讯
+        </Card.Grid>
+        <Card.Grid style={gridStyle} onClick={() => jump(3)}>
+          普洱展示
+        </Card.Grid>
+        <Card.Grid style={gridStyle} onClick={() => jump(4)}>
+          普洱文旅
+        </Card.Grid>
+        <Card.Grid style={gridStyle} onClick={() => jump(5)}>
+          公告栏
+        </Card.Grid>
       </Card>
     );
   };
@@ -99,13 +116,21 @@ function NewsList(props) {
           onLeftClick={() => {
             history.go(-1);
           }}
-          rightContent={[<Icon key="sync" type="sync" /* spin */ />]}
+          rightContent={[
+            <Icon
+              key="sync"
+              type="sync"
+              onClick={() => {
+                props.getallData({ category: match.params.id });
+              }}
+            />,
+          ]}
         >
           <Tooltip
             placement="bottom"
             title={allMenu}
-            trigger="click"
             overlayClassName="NewsList_tooltip"
+            visible={toShow}
           >
             <div onClick={showMore} className="top_name">
               选择分类
@@ -142,12 +167,12 @@ function NewsList(props) {
             prevText: (
               <span className="arrow-align-prev">
                 <Icon type="left" />
-                上一步
+                上一页
               </span>
             ),
             nextText: (
               <span className="arrow-align">
-                下一步
+                下一页
                 <Icon type="right" />
               </span>
             ),
