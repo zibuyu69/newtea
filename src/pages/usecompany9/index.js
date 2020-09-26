@@ -3,17 +3,29 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./style.less";
 import * as actionCreators from "../usecompany/store/actionCreators";
-import { Select, Icon, Divider } from "antd";
-import { NavBar, WingBlank, SegmentedControl, Button } from "antd-mobile";
+import { Select, Icon, Divider, Input, Button } from "antd";
+import { NavBar, WingBlank, SegmentedControl, ImagePicker } from "antd-mobile";
 import * as CONST from "./CONST";
 import QueryFooter from "../../components/basic/queryFooter";
 import * as NAME_CONST from "../queryhome/CONST";
+import img1 from "../../assets/newList/普洱知识.jpg";
+import img2 from "../../assets/newList/普洱资讯.jpg";
 
 const { Option } = Select;
+const { TextArea } = Input;
 
-function UseCompany1(props) {
+function UseCompany9(props) {
   const { history, allData, match } = props;
-  const [value, setValue] = useState("");
+  const [data, setData] = useState([
+    {
+      url: img1,
+      id: "2121",
+    },
+    {
+      url: img2,
+      id: "2122",
+    },
+  ]);
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
@@ -40,8 +52,12 @@ function UseCompany1(props) {
     history.push("/company");
   };
 
+  const onChange = (files, type, index) => {
+    console.log(files, type, index);
+    setData(files);
+  };
   return (
-    <div className="UseCompany">
+    <div className="UseCompany9">
       <div className="top_fa">
         <div className="top">
           <NavBar
@@ -58,46 +74,26 @@ function UseCompany1(props) {
             })}
           </NavBar>
         </div>
-
-        <WingBlank>
-          <Select
-            showSearch
-            value={value}
-            placeholder="请输入企业全称或者企业机构代码"
-            style={{ width: "100%" }}
-            defaultActiveFirstOption={false}
-            showArrow={false}
-            filterOption={false}
-            onSearch={handleSearch}
-            onChange={handleChange}
-            notFoundContent={null}
-          >
-            {options.map((item) => {
-              return (
-                <Option key={item.id} onClick={() => toJump(item)}>
-                  {item.name}
-                </Option>
-              );
-            })}
-          </Select>
-          <div className="title">
-            食品（茶叶）生产许可【QS（SC）】企业名单
-            <span style={{ fontSize: "14px", color: "#898989" }}>
-              （排名不分先后）
-            </span>
-          </div>
-        </WingBlank>
       </div>
 
       <WingBlank>
         <div className="content">
-          {allData.map((item) => {
-            return (
-              <div className="line" key={item.id} onClick={() => toJump(item)}>
-                {item.name}
-              </div>
-            );
-          })}
+          <Input placeholder="举报编号" defaultValue="2020092617021165" />
+          <ImagePicker
+            files={data}
+            onChange={onChange}
+            onImageClick={(index, fs) => console.log(index, fs)}
+            selectable={data.length < 7}
+          />
+          <TextArea placeholder="举报说明" rows={4} />
+          <div className="bo_button">
+            <Button style={{ width: "100%" }} type="primary">
+              提交
+            </Button>
+            <span style={{ fontSize: "14px", color: "#898989" }}>
+              注:（我们不会泄露您的个人信息，并对您的信息进行加密处理）
+            </span>
+          </div>
         </div>
       </WingBlank>
 
@@ -121,4 +117,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(UseCompany1));
+)(withRouter(UseCompany9));

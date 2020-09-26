@@ -1,3 +1,4 @@
+/* eslint-disable max-nested-callbacks */
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -11,8 +12,8 @@ import * as NAME_CONST from "../queryhome/CONST";
 
 const { Option } = Select;
 
-function UseCompany1(props) {
-  const { history, allData, match } = props;
+function UseCompany4(props) {
+  const { history, newData1, match } = props;
   const [value, setValue] = useState("");
   const [options, setOptions] = useState([]);
 
@@ -41,7 +42,7 @@ function UseCompany1(props) {
   };
 
   return (
-    <div className="UseCompany">
+    <div className="UseCompany3">
       <div className="top_fa">
         <div className="top">
           <NavBar
@@ -58,46 +59,39 @@ function UseCompany1(props) {
             })}
           </NavBar>
         </div>
+      </div>
 
-        <WingBlank>
-          <Select
-            showSearch
-            value={value}
-            placeholder="请输入企业全称或者企业机构代码"
-            style={{ width: "100%" }}
-            defaultActiveFirstOption={false}
-            showArrow={false}
-            filterOption={false}
-            onSearch={handleSearch}
-            onChange={handleChange}
-            notFoundContent={null}
-          >
-            {options.map((item) => {
-              return (
-                <Option key={item.id} onClick={() => toJump(item)}>
-                  {item.name}
-                </Option>
-              );
-            })}
-          </Select>
+      <WingBlank>
+        <div className="content-fa">
           <div className="title">
-            食品（茶叶）生产许可【QS（SC）】企业名单
+            中国茶叶行业综合实力百强企业名单
             <span style={{ fontSize: "14px", color: "#898989" }}>
               （排名不分先后）
             </span>
           </div>
-        </WingBlank>
-      </div>
-
-      <WingBlank>
-        <div className="content">
-          {allData.map((item) => {
-            return (
-              <div className="line" key={item.id} onClick={() => toJump(item)}>
-                {item.name}
-              </div>
-            );
-          })}
+          <div className="content">
+            {newData1.map((item) => {
+              return (
+                <div key={item.name}>
+                  <div className="big_line"> {item.name}</div>
+                  {item.list.map((item1) => {
+                    return (
+                      <div key={item1.id}>
+                        {item1.name}
+                        {item1.list.map((item2) => {
+                          return (
+                            <div key={item2.id} className="line">
+                              {item2.name}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </WingBlank>
 
@@ -121,4 +115,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(UseCompany1));
+)(withRouter(UseCompany4));

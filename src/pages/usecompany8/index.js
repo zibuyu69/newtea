@@ -11,7 +11,7 @@ import * as NAME_CONST from "../queryhome/CONST";
 
 const { Option } = Select;
 
-function UseCompany1(props) {
+function UseCompany8(props) {
   const { history, allData, match } = props;
   const [value, setValue] = useState("");
   const [options, setOptions] = useState([]);
@@ -41,7 +41,7 @@ function UseCompany1(props) {
   };
 
   return (
-    <div className="UseCompany">
+    <div className="UseCompany8">
       <div className="top_fa">
         <div className="top">
           <NavBar
@@ -58,46 +58,25 @@ function UseCompany1(props) {
             })}
           </NavBar>
         </div>
-
-        <WingBlank>
-          <Select
-            showSearch
-            value={value}
-            placeholder="请输入企业全称或者企业机构代码"
-            style={{ width: "100%" }}
-            defaultActiveFirstOption={false}
-            showArrow={false}
-            filterOption={false}
-            onSearch={handleSearch}
-            onChange={handleChange}
-            notFoundContent={null}
-          >
-            {options.map((item) => {
-              return (
-                <Option key={item.id} onClick={() => toJump(item)}>
-                  {item.name}
-                </Option>
-              );
-            })}
-          </Select>
-          <div className="title">
-            食品（茶叶）生产许可【QS（SC）】企业名单
-            <span style={{ fontSize: "14px", color: "#898989" }}>
-              （排名不分先后）
-            </span>
-          </div>
-        </WingBlank>
       </div>
 
       <WingBlank>
-        <div className="content">
-          {allData.map((item) => {
-            return (
-              <div className="line" key={item.id} onClick={() => toJump(item)}>
-                {item.name}
-              </div>
-            );
-          })}
+        <div className="content-fa">
+          <div className="title">
+            曝光平台
+            {/*   <span style={{ fontSize: "14px", color: "#898989" }}>
+              （排名不分先后）
+            </span> */}
+          </div>
+          <div className="content">
+            <div className="line">
+              一企业因产品质量问题给予曝光，列入黑名单：
+            </div>
+            <div className="line">
+              以下企业因产品质量问题给予曝光，列入黑名单：
+            </div>
+            <div className="line">曝光！一企业伪造证书、奖牌：</div>
+          </div>
         </div>
       </WingBlank>
 
@@ -121,4 +100,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(UseCompany1));
+)(withRouter(UseCompany8));

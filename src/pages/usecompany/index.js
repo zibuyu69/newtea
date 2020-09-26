@@ -83,7 +83,7 @@ function UseCompany(props) {
           </Select>
           <div className="title">
             “福鼎白茶”证明商标使用授权名单
-            <span style={{ fontSize: "14px", color: "#898989" }}>
+            <span style={{ fontSize: "2vw", color: "#898989" }}>
               （排名不分先后）
             </span>
           </div>

@@ -48,6 +48,46 @@ export default {
         component: UseCompany1,
         name: "授权企业",
       },
+      {
+        path: "/usecompany2",
+        component: UseCompany2,
+        name: "授权企业",
+      },
+      {
+        path: "/usecompany3",
+        component: UseCompany3,
+        name: "授权企业",
+      },
+      {
+        path: "/usecompany4",
+        component: UseCompany4,
+        name: "授权企业",
+      },
+      {
+        path: "/usecompany5",
+        component: UseCompany5,
+        name: "授权企业",
+      },
+      {
+        path: "/usecompany6",
+        component: UseCompany6,
+        name: "授权企业",
+      },
+      {
+        path: "/usecompany7",
+        component: UseCompany7,
+        name: "授权企业",
+      },
+      {
+        path: "/usecompany8",
+        component: UseCompany8,
+        name: "授权企业",
+      },
+      {
+        path: "/usecompany9",
+        component: UseCompany9,
+        name: "授权企业",
+      },
     ],
   },
   basicLayout: {

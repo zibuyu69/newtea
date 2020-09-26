@@ -41,7 +41,7 @@ function UseCompany1(props) {
   };
 
   return (
-    <div className="UseCompany">
+    <div className="UseCompany1">
       <div className="top_fa">
         <div className="top">
           <NavBar
@@ -82,7 +82,7 @@ function UseCompany1(props) {
           </Select>
           <div className="title">
             食品（茶叶）生产许可【QS（SC）】企业名单
-            <span style={{ fontSize: "14px", color: "#898989" }}>
+            <span style={{ fontSize: "2vw", color: "#898989" }}>
               （排名不分先后）
             </span>
           </div>
