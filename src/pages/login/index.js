@@ -38,6 +38,14 @@ function Login(props) {
     <div className="login">
       <div className="title">
         <WingBlank>
+          <Button
+            onClick={() => {
+              history.push("/b/bigHome");
+            }}
+          >
+            第二版
+          </Button>
+          <br />
           <Button onClick={login}>新闻主页</Button>
           <br />
           <Button
@@ -47,7 +55,6 @@ function Login(props) {
           >
             搜索主页
           </Button>
-
           {/* <ImagePicker
             files={data}
             onChange={onChange}

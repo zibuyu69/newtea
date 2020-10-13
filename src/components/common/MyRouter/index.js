@@ -18,6 +18,8 @@ import UseCompany7 from "../../../pages/usecompany7";
 import UseCompany8 from "../../../pages/usecompany8";
 import UseCompany9 from "../../../pages/usecompany9";
 
+import BigHome from "../../../pages/bighome";
+
 export default {
   blankLayout: {
     path: "/b",
@@ -28,6 +30,13 @@ export default {
         component: Login,
         name: "登录页",
       },
+
+      {
+        path: "/bighome",
+        component: BigHome,
+        name: "第二版登录页",
+      },
+
       {
         path: "/queryhome",
         component: QueryHome,
