@@ -74,16 +74,35 @@ function BigHome(props) {
             <img src={icon4} style={{ width: "100%", height: "100%" }} />
             <div className="icon_name">名山古树</div>
           </div>
-          <div className="icon">
+          <div
+            className="icon"
+            onClick={() => {
+              history.push("/b/goodtea");
+            }}
+          >
             <img src={icon5} style={{ width: "100%", height: "100%" }} />
             <div className="icon_name">好茶推荐</div>
           </div>
         </div>
         <div className="bo_bg">
-          <div className="bg1">789464</div>
+          <div
+            className="bg1"
+            onClick={() => {
+              history.push("/b/query");
+            }}
+          >
+            <div className="bo_title">茶企信息全目录</div>
+            <div className="bo_des">查询您想要的</div>
+          </div>
           <div className="bg_right">
-            <div className="bg2">789464</div>
-            <div className="bg3">789464</div>
+            <div className="bg2">
+              <div className="bo_title">政府公告栏</div>
+              <div className="bo_des">政府实时公告信息</div>
+            </div>
+            <div className="bg3">
+              <div className="bo_title">春茶报告</div>
+              <div className="bo_des">最新春茶新闻</div>
+            </div>
           </div>
         </div>
         <div className="bo_bo">

@@ -19,6 +19,8 @@ import UseCompany8 from "../../../pages/usecompany8";
 import UseCompany9 from "../../../pages/usecompany9";
 
 import BigHome from "../../../pages/bighome";
+import GoodTea from "../../../pages/goodtea";
+import Query from "../../../pages/query";
 
 export default {
   blankLayout: {
@@ -30,13 +32,22 @@ export default {
         component: Login,
         name: "登录页",
       },
-
       {
         path: "/bighome",
         component: BigHome,
         name: "第二版登录页",
       },
-
+      {
+        path: "/goodtea",
+        component: GoodTea,
+        name: "好茶推荐",
+      },
+      {
+        path: "/query",
+        component: Query,
+        name: "查询平台",
+      },
+      /* `````````````````````````````````````````````````````````````` */
       {
         path: "/queryhome",
         component: QueryHome,
