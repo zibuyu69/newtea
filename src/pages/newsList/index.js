@@ -113,7 +113,7 @@ function NewsList(props) {
   // 点击跳转
   const toJump = (item) => {
     /*  history.push("/company"); */
-    window.open(item.url);
+    window.open(item.url, "_self");
   };
 
   return (
