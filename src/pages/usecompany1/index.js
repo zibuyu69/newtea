@@ -17,7 +17,7 @@ function UseCompany1(props) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    props.getAll();
+    /*  props.getAll(); */
   }, []);
 
   // 跳转

@@ -42,7 +42,12 @@ function Query(props) {
               <span> 国家地理</span>
               <span> 标志产品</span>
             </div>
-            <div className="des3">
+            <div
+              className="des3"
+              onClick={() => {
+                history.push(`/b/usecompany1`);
+              }}
+            >
               <img src={icon3} style={{ marginBottom: "2vw" }} />
               <span> SC认证</span>
               <span> 企业名录</span>

@@ -23,19 +23,34 @@ function GoodTea(props) {
         <div className="des">说起好茶，你脑海中浮现的是…</div>
       </div>
       <div className="bo">
-        <div className="bo1">
+        <div
+          className="bo1"
+          onClick={() => {
+            history.push(`/newsList/2`);
+          }}
+        >
           <div className="bo_des">
             <img src={icon} style={{ margin: "2vw" }} />
             生茶
           </div>
         </div>
-        <div className="bo2">
+        <div
+          className="bo2"
+          onClick={() => {
+            history.push(`/newsList/2`);
+          }}
+        >
           <div className="bo_des">
             <img src={icon} style={{ margin: "2vw" }} />
             熟茶
           </div>
         </div>
-        <div className="bo3">
+        <div
+          className="bo3"
+          onClick={() => {
+            history.push(`/newsList/2`);
+          }}
+        >
           <div className="bo_des">
             <img src={icon} style={{ margin: "2vw" }} />
             晒红

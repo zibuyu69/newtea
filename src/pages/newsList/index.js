@@ -77,34 +77,43 @@ function NewsList(props) {
   const newList = [
     {
       imgUrl: img1,
-      title: "茶文化意为饮茶活动过程中形成的文化特征",
+      title: "双江特产 “普洱皇后”--冰岛茶",
+      url:
+        "http://mp.weixin.qq.com/s?__biz=Mzg4ODQ1MTI1MA==&mid=100000041&idx=1&sn=58f5ae5e1f7c46fb5123086663a46758&chksm=4ffbb8f4788c31e27adffbc3a57d97e45e48bdcaa25717e35f3f6a00f182436bf9a90c3a9885#rd",
     },
     {
       imgUrl: img2,
-      title:
-        "包括茶道、茶德、茶精神、茶联、茶书、茶具、茶谱、茶诗、茶画、茶学、茶故事、茶艺等等",
+      title: "加快茶产业转型升级 双江举办茶叶智能仓储培训会",
+      url:
+        "http://mp.weixin.qq.com/s?__biz=Mzg4ODQ1MTI1MA==&mid=100000036&idx=1&sn=5e7f7d0ac5d6bd4e7e3c13d578031d17&chksm=4ffbb8f9788c31efb74a5b00d38860e2fdbea8b3ea0e8e013d7b2af69bf9b239de470459ec65#rd",
     },
     {
       imgUrl: img3,
-      title:
-        "茶文化起源地为中国。中国是茶的故乡，中国饮茶，据说始于神农时代，少说也有4700多年了",
+      title: "双江紧抓“一县一业”发展机遇 实现茶叶综合产值51.6亿元",
+      url:
+        "http://mp.weixin.qq.com/s?__biz=Mzg4ODQ1MTI1MA==&mid=100000022&idx=1&sn=efc6e37968f313c8f562199a336a78e2&chksm=4ffbb8cb788c31dd5b5cd59cfc661540388dc41f8e4da5cad545a7d2344c0c9b701f43e9bd10#rd",
     },
 
     {
       imgUrl: img4,
       title: "直到现在，汉族还有民以茶代礼的风俗",
+      url:
+        "http://mp.weixin.qq.com/s?__biz=Mzg4ODQ1MTI1MA==&mid=100000022&idx=1&sn=efc6e37968f313c8f562199a336a78e2&chksm=4ffbb8cb788c31dd5b5cd59cfc661540388dc41f8e4da5cad545a7d2344c0c9b701f43e9bd10#rd",
     },
 
     {
       imgUrl: img5,
       title:
         "汉族对茶的配制是多种多样的：有太湖的熏豆茶、苏州的香味茶、湖南的姜盐茶、蜀山的侠君茶、台湾的冻顶茶、杭州的龙井茶、福建的乌龙茶等",
+      url:
+        "http://mp.weixin.qq.com/s?__biz=Mzg4ODQ1MTI1MA==&mid=100000022&idx=1&sn=efc6e37968f313c8f562199a336a78e2&chksm=4ffbb8cb788c31dd5b5cd59cfc661540388dc41f8e4da5cad545a7d2344c0c9b701f43e9bd10#rd",
     },
   ];
 
   // 点击跳转
-  const toJump = () => {
-    history.push("/company");
+  const toJump = (item) => {
+    /*  history.push("/company"); */
+    window.open(item.url);
   };
 
   return (
