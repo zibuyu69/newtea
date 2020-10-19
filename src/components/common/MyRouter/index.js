@@ -47,6 +47,11 @@ export default {
         component: Query,
         name: "查询平台",
       },
+      {
+        path: "/newsList/:id",
+        component: NewsList,
+        name: "新闻列表",
+      },
       /* `````````````````````````````````````````````````````````````` */
       {
         path: "/queryhome",
