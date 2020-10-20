@@ -5,10 +5,8 @@ import Login from "../../../pages/login";
 import Home from "../../../pages/home";
 import NewsList from "../../../pages/newsList";
 
-import Company from "../../../pages/company";
 import QueryHome from "../../../pages/queryhome";
 import UseCompany from "../../../pages/usecompany";
-import UseCompany1 from "../../../pages/usecompany1";
 import UseCompany2 from "../../../pages/usecompany2";
 import UseCompany3 from "../../../pages/usecompany3";
 import UseCompany4 from "../../../pages/usecompany4";
@@ -21,6 +19,8 @@ import UseCompany9 from "../../../pages/usecompany9";
 import BigHome from "../../../pages/bighome";
 import GoodTea from "../../../pages/goodtea";
 import Query from "../../../pages/query";
+import UseCompany1 from "../../../pages/usecompany1";
+import Company from "../../../pages/company";
 
 export default {
   blankLayout: {
@@ -46,6 +46,16 @@ export default {
         path: "/query",
         component: Query,
         name: "查询平台",
+      },
+      {
+        path: "/newsList/:id",
+        component: NewsList,
+        name: "新闻列表",
+      },
+      {
+        path: "/company/:id",
+        component: Company,
+        name: "公司信息",
       },
       {
         path: "/newsList/:id",

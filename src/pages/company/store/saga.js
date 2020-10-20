@@ -6,16 +6,19 @@ import { showErr, showSuccess } from "../../../common/tools";
 // 获得所有数据
 function* getAllData(action) {
   try {
-    const res = yield apiUtil.getAxios("/origin/company/findById", action.data);
-    if (res.data.code === 10000) {
+    const res = yield apiUtil.getAxios(
+      "/v1/companyinfo/findCompanyInfo",
+      action.data
+    );
+    if (res.data.code === 0) {
       yield put({
         type: constants.MERGE_DATA,
         payload: {
-          allData: res.data.data.list,
+          allData: res.data.data.recompanyinfo,
         },
       });
     } else {
-      showErr(res, "/origin/company/findById");
+      showErr(res, "/v1/companyinfo/findCompanyInfo");
     }
   } catch (error) {
     console.error(error);

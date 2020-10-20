@@ -3,10 +3,12 @@ import globalReducer from "./globalStore/globalReducer";
 import newListReducer from "../pages/newsList/store/reducer";
 import UseCompanyReducer from "../pages/usecompany/store/reducer";
 import CompanyReducer from "../pages/company/store/reducer";
+import UseCompany1Reducer from "../pages/usecompany1/store/reducer";
 
 export default combineReducers({
   globalReducer,
   newListReducer,
   UseCompanyReducer,
   CompanyReducer,
+  UseCompany1Reducer,
 });

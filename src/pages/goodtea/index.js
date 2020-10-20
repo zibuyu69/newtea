@@ -26,7 +26,7 @@ function GoodTea(props) {
         <div
           className="bo1"
           onClick={() => {
-            history.push(`/b/newsList/2`);
+            history.push(`/b/newsList/1`);
           }}
         >
           <div className="bo_des">
@@ -48,7 +48,7 @@ function GoodTea(props) {
         <div
           className="bo3"
           onClick={() => {
-            history.push(`/b/newsList/2`);
+            history.push(`/b/newsList/3`);
           }}
         >
           <div className="bo_des">

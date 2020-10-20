@@ -37,7 +37,7 @@ axios.interceptors.response.use(
     if (response.data.status === 500 || response.data.code === 10111) {
       window.sessionStorage.setItem("token", "");
       window.sessionStorage.setItem("loginId", "");
-      window.location.href = "/b/login";
+      /*  window.location.href = "/b/login"; */
     }
     // 对响应数据做点什么，允许在数据返回客户端前，修改响应的数据
     // 如果只需要返回体中数据，则如下，如果需要全部，则 return response 即可

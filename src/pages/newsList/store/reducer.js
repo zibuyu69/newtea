@@ -2,6 +2,11 @@ import * as constants from "./constants";
 
 const defaultState = {
   loading: true,
+  pageInfo: {
+    page: 1,
+    pageSize: 2,
+  },
+  allData: [],
 };
 
 export default (state = defaultState, action) => {

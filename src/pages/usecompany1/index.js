@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./style.less";
-import * as actionCreators from "../usecompany/store/actionCreators";
+import * as actionCreators from "./store/actionCreators";
 import { Select, Icon, Divider } from "antd";
 import { NavBar, WingBlank, SegmentedControl, Button } from "antd-mobile";
 import * as CONST from "./CONST";
@@ -17,12 +17,15 @@ function UseCompany1(props) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    /*  props.getAll(); */
+    props.getAll({
+      page: 1,
+      pageSize: 9999,
+    });
   }, []);
 
   // 跳转
   const toJump = (item) => {
-    history.push(`/b/company/${item.id}`);
+    history.push(`/b/company/${item.ID}`);
   };
 
   // 文本框变化的值
@@ -37,7 +40,7 @@ function UseCompany1(props) {
   // 选中 option
   const handleChange = (value) => {
     setValue(value);
-    history.push("/company");
+    history.push(`/b/company/${value}`);
   };
 
   return (
@@ -91,13 +94,18 @@ function UseCompany1(props) {
 
       <WingBlank>
         <div className="content">
-          {allData.map((item) => {
-            return (
-              <div className="line" key={item.id} onClick={() => toJump(item)}>
-                {item.name}
-              </div>
-            );
-          })}
+          {allData &&
+            allData.map((item) => {
+              return (
+                <div
+                  className="line"
+                  key={item.id}
+                  onClick={() => toJump(item)}
+                >
+                  {item.company_name}
+                </div>
+              );
+            })}
         </div>
       </WingBlank>
 
@@ -107,7 +115,7 @@ function UseCompany1(props) {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  ...state.UseCompanyReducer,
+  ...state.UseCompany1Reducer,
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
   mergeData: (data) => {

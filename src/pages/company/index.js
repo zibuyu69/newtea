@@ -27,10 +27,10 @@ import img7 from "../../assets/company/主要产品1.png";
 const { Paragraph } = Typography;
 
 function Company(props) {
-  const { loading, history, match } = props;
+  const { loading, history, match, allData } = props;
 
   useEffect(() => {
-    props.getallData({ id: match.params.id });
+    props.getallData({ ID: match.params.id });
   }, [match.params.id]);
 
   return (
@@ -43,93 +43,98 @@ function Company(props) {
             history.go(-1);
           }}
         >
-          福建品品香茶叶有限公司
+          {allData.company_name}
         </NavBar>
       </div>
       <div className="content">
         <table border="2" className="table">
           <tr>
             <td className="left">证书编号</td>
-            <td className="right">DB-001</td>
+            <td className="right"> {allData.certificate_id}</td>
           </tr>
           <tr>
             <td className="left">企业名称</td>
-            <td className="right">福建品品香茶叶有限公司</td>
+            <td className="right"> {allData.company_name}</td>
           </tr>
           <tr>
             <td className="left">企业地址</td>
-            <td className="right">福建省福鼎市桐城资国寺村山下品品香</td>
+            <td className="right">{allData.company_addr}</td>
           </tr>
           <tr>
             <td className="left">发证日期</td>
-            <td className="right">2016-07-01</td>
+            <td className="right">{allData.issue_date}</td>
           </tr>
           <tr>
             <td className="left">有效期至</td>
-            <td className="right">2021-06-30</td>
+            <td className="right">{allData.validity}</td>
           </tr>
           <tr>
             <td className="left">发证单位</td>
-            <td className="right">福建省宁德市质量技术监督局</td>
+            <td className="right">{allData.certificate_unit}</td>
           </tr>
         </table>
       </div>
       <WingBlank>
         <div className="info">
           {/* 111 */}
-          <div className="title">{CONST.info1.title} </div>
+          <div className="title">公司简介</div>
           <Divider />
-          <div className="info_text">{CONST.info1.text1} </div>
-          <div className="info_text">{CONST.info1.text2} </div>
-          <div className="info_text">{CONST.info1.text3} </div>
+          <div className="info_text">{allData.company_profile}</div>
           {/* 22 */}
-          <div className="title">{CONST.info2.title} </div>
+          <div className="title">{"荣誉展示"} </div>
           <Divider />
-          {CONST.info2.text.map((item) => {
-            return (
-              <div className="info_line" key={{ item }}>
-                {item}
-              </div>
-            );
-          })}
+          {allData.honors &&
+            allData.honors.map((item, index) => {
+              return (
+                <div key={index}>
+                  <img
+                    src={item.url}
+                    style={{ width: "100%", height: "200px" }}
+                  />
+                  <div className="info_line">{item.title}</div>
+                </div>
+              );
+            })}
           {/* 33 */}
-          <div className="title">{CONST.info3.title} </div>
+          <div className="title">{"企业展示"} </div>
           <Divider />
-          <img src={img1} style={{ width: "100%", height: "200px" }} />
-          <div className="info_line">品品香公司总部</div>
-          <img src={img2} style={{ width: "100%", height: "200px" }} />
-          <div className="info_line">品品香河山庄园</div>
-          <img src={img3} style={{ width: "100%", height: "200px" }} />
-          <div className="info_line">品品香有机茶园</div>
-          <img src={img4} style={{ width: "100%", height: "200px" }} />
-          <div className="info_line">品品香普洱文化体验馆</div>
-          <img src={img5} style={{ width: "100%", height: "200px" }} />
-          <div className="info_line">品品香实验室</div>
+          {allData.company_show &&
+            allData.company_show.map((item, index) => {
+              return (
+                <div key={index}>
+                  <img
+                    src={item.url}
+                    style={{ width: "100%", height: "200px" }}
+                  />
+                  <div className="info_line">{item.title}</div>
+                </div>
+              );
+            })}
+
           {/* 444 */}
-          <div className="title">{CONST.info4.title} </div>
+          <div className="title">{"主要产品"} </div>
           <Divider />
-          {CONST.info4.text.map((item) => {
-            return (
-              <div className="info_line" key={{ item }}>
-                {item}
-              </div>
-            );
-          })}
-          <img src={img6} style={{ width: "100%", height: "200px" }} />
-          <img src={img7} style={{ width: "100%", height: "200px" }} />
+          {allData.product &&
+            allData.product.map((item, index) => {
+              return (
+                <div key={index}>
+                  <img
+                    src={item.url}
+                    style={{ width: "100%", height: "200px" }}
+                  />
+                  <div className="info_line">{item.title}</div>
+                </div>
+              );
+            })}
           {/* 5555 */}
-          <div className="title">{CONST.info5.title} </div>
+          <div className="title">{"公司信息"} </div>
           <Divider />
-          {CONST.info5.text.map((item) => {
-            return (
-              <div className="info_line" key={{ item }}>
-                {item}
-              </div>
-            );
-          })}
+          <div className="info_line">{`地址： ${allData.company_addr}`}</div>
+          <div className="info_line">{`电话： ${allData.telephone}`}</div>
+          <div className="info_line">{`QQ： ${allData.company_qq}`}</div>
         </div>
       </WingBlank>
-      <ComponentFooter />
+      {/* <ComponentFooter /> */}
     </div>
   );
 }

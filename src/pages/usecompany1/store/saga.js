@@ -7,10 +7,10 @@ import { showErr, showSuccess } from "../../../common/tools";
 function* getAll(action) {
   try {
     const res = yield apiUtil.getAxios(
-      "/origin/companyinfo/findAl",
+      "v1/companyinfo/getCompanyInfoList",
       action.data
     );
-    if (res.data.code === 10000) {
+    if (res.data.code === 0) {
       yield put({
         type: constants.MERGE_DATA,
         payload: {
@@ -18,7 +18,7 @@ function* getAll(action) {
         },
       });
     } else {
-      showErr(res, "/origin/companyinfo/findAl");
+      showErr(res, "v1/companyinfo/getCompanyInfoList");
     }
   } catch (error) {
     console.error(error);

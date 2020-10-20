@@ -7,7 +7,7 @@ import { showErr, showSuccess } from "../../../common/tools";
 function* getAll(action) {
   try {
     const res = yield apiUtil.getAxios(
-      "/origin/companyinfo/findAll",
+      "/v1/company/getCompanyInfoList",
       action.data
     );
     if (res.data.code === 10000) {
@@ -18,7 +18,7 @@ function* getAll(action) {
         },
       });
     } else {
-      showErr(res, "/origin/companyinfo/findAll");
+      showErr(res, "/v1/company/getCompanyInfoList");
     }
   } catch (error) {
     console.error(error);

@@ -1,2 +1,2 @@
-export const MERGE_DATA = "UseCompanyReducer/MERGE_DATA";
-export const GET_ALL = "UseCompanyReducer/GET_ALL";
+export const MERGE_DATA = "UseCompany1Reducer/MERGE_DATA";
+export const GET_ALL = "UseCompany1Reducer/GET_ALL";
