@@ -54,7 +54,12 @@ function UseCompany10(props) {
               history.go(-1);
             }}
           >
-            {"曝光平台"}
+            {allData &&
+              allData.map((item, index) => {
+                if (item.ID == match.params.id) {
+                  return <div className="line">{item.title}</div>;
+                }
+              })}
           </NavBar>
         </div>
       </div>
@@ -62,10 +67,12 @@ function UseCompany10(props) {
       <WingBlank>
         <div className="content-fa">
           <div className="title">
-            曝光平台
-            {/*   <span style={{ fontSize: "14px", color: "#898989" }}>
-              （排名不分先后）
-            </span> */}
+            {allData &&
+              allData.map((item, index) => {
+                if (item.ID == match.params.id) {
+                  return <div className="line">{item.title}</div>;
+                }
+              })}
           </div>
           <div className="content">
             {allData &&

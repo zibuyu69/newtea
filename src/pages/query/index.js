@@ -144,7 +144,7 @@ function Query(props) {
             <div className="des12"> {allData.created_at}</div>
           </div>
           <img
-            src={allData.wechat_url}
+            src={allData.converimg}
             style={{ width: "45vw", height: "30vw" }}
           />
         </div>
