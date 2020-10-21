@@ -9,3 +9,8 @@ export const getAll = (data) => ({
   type: constants.GET_ALL,
   data,
 });
+
+export const toSubmit = (data) => ({
+  type: constants.TO_SUBMIT,
+  data,
+});

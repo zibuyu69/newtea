@@ -21,7 +21,7 @@ function UseCompany1(props) {
       props.getAll({
         page: 1,
         pageSize: 9999,
-        is_scc: 1,
+        is_sc: 1,
       });
     } else {
       props.getAll({
@@ -33,8 +33,10 @@ function UseCompany1(props) {
   }, [match.params.id]);
 
   let title = "食品（茶叶）生产许可【QS（SC）】企业名单";
+  let name = "SC认证企业名录";
   if (match.params.id === "2") {
     title = "优质企业白名单";
+    name = "优质企业白名单";
   }
 
   // 跳转
@@ -68,11 +70,12 @@ function UseCompany1(props) {
               history.go(-1);
             }}
           >
-            {NAME_CONST.nameList.map((item) => {
+            {/*    {NAME_CONST.nameList.map((item) => {
               if (item.to === match.path.split("/")[2]) {
                 return item.name;
               }
-            })}
+            })} */}
+            {name}
           </NavBar>
         </div>
 

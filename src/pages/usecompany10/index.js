@@ -11,7 +11,7 @@ import * as NAME_CONST from "../queryhome/CONST";
 
 const { Option } = Select;
 
-function UseCompany8(props) {
+function UseCompany10(props) {
   const { history, allData, match } = props;
   const [value, setValue] = useState("");
   const [options, setOptions] = useState([]);
@@ -44,7 +44,7 @@ function UseCompany8(props) {
   };
 
   return (
-    <div className="UseCompany8">
+    <div className="UseCompany10">
       <div className="top_fa">
         <div className="top">
           <NavBar
@@ -70,15 +70,9 @@ function UseCompany8(props) {
           <div className="content">
             {allData &&
               allData.map((item, index) => {
-                return (
-                  <div
-                    className="line"
-                    key={{ index }}
-                    onClick={() => history.push(`/b/usecompany10/${item.ID}`)}
-                  >
-                    {item.title}
-                  </div>
-                );
+                if (item.ID == match.params.id) {
+                  return <div className="line">{item.content}</div>;
+                }
               })}
           </div>
         </div>
@@ -90,7 +84,7 @@ function UseCompany8(props) {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  ...state.UseCompany8Reducer,
+  ...state.UseCompany10Reducer,
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
   mergeData: (data) => {
@@ -104,4 +98,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(UseCompany8));
+)(withRouter(UseCompany10));

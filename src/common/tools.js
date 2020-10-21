@@ -7,7 +7,7 @@ import {
   Spin,
   Alert,
   Typography,
-  Avatar
+  Avatar,
 } from "antd";
 import CryptoJS from "crypto-js";
 import apiUtil from "apiUtil/axios";
@@ -27,7 +27,7 @@ export async function sendLog(service, fun, param) {
   const res = await apiUtil.postAxios("logApi/log/save", {
     service: service || "",
     function: fun || "",
-    param: param || ""
+    param: param || "",
   });
   if (res.data.code === 10000) {
     /* console.log("成功"); */
@@ -48,7 +48,7 @@ export function encrypt(str) {
 
   var enc = CryptoJS.AES.encrypt(str, key, {
     mode: CryptoJS.mode.ECB,
-    padding: CryptoJS.pad.Pkcs7
+    padding: CryptoJS.pad.Pkcs7,
   });
   return enc.ciphertext.toString();
 }
@@ -141,14 +141,14 @@ export function showErr(res, way) {
     description: description,
     icon: React.createElement(Icon, {
       type: "frown",
-      style: { color: "#108ee9" }
+      style: { color: "#108ee9" },
     }),
     duration: 5,
     placement: "topLeft",
     style: {
       width: 600,
-      marginTop: 60
-    }
+      marginTop: 60,
+    },
   });
 }
 /**
@@ -176,14 +176,14 @@ export function showSuccess(successMessage) {
     description: successMessage,
     icon: React.createElement(Icon, {
       type: "smile",
-      style: { color: "#108ee9" }
+      style: { color: "#108ee9" },
     }),
     duration: 3,
     style: {
       width: 600,
       marginLeft: 335 - 600,
-      marginTop: 60
-    }
+      marginTop: 60,
+    },
   });
 }
 
@@ -210,7 +210,7 @@ export function strIsEmpty(str) {
  * @return {number} true or false
  */
 export function numberIsEmptyOrZero(num) {
-  if (num == undefined || num == null || num === '') {
+  if (num == undefined || num == null || num === "") {
     return true;
   } else {
     return false;
@@ -258,13 +258,13 @@ export function getLocalUrl(number) {
 export const mockDataStructure_1 = {
   code: "",
   msg: "",
-  data: []
+  data: [],
 };
 export const showHelp = (type, title, help) => {
   notification[type]({
     message: title,
     description: help,
-    placement: "topLeft"
+    placement: "topLeft",
   });
 };
 /**
@@ -276,9 +276,9 @@ export const mockDataStructure = {
   data: {
     data: {
       list: [],
-      entity: {}
-    }
-  }
+      entity: {},
+    },
+  },
 };
 /**
  * @description: antd table组件中，如果某列内容非常多，就会把行高撑开影响美观
@@ -310,7 +310,7 @@ export function overflowEllipsis(content, pixel, size) {
                 height: "189px", // 第一屏幕显示9行，每行21px高
                 overflowY: "auto",
                 overflowX: "auto",
-                wordBreak: "break-all" // 自动换行
+                wordBreak: "break-all", // 自动换行
               }}
             >
               {content}
@@ -319,7 +319,7 @@ export function overflowEllipsis(content, pixel, size) {
             <div
               style={{
                 width: pixel > 448 ? pixel : content.length > 32 ? 448 : "100%",
-                wordBreak: "break-all"
+                wordBreak: "break-all",
               }}
             >
               {content}
@@ -334,7 +334,7 @@ export function overflowEllipsis(content, pixel, size) {
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
-            textAlign: "left"
+            textAlign: "left",
           }}
         >
           {content}
@@ -375,7 +375,7 @@ export function attachHelp(helpTitle, helpContent, originTitle) {
         style={{
           cursor: "pointer",
           color: "#f39518",
-          marginLeft: originTitle ? 8 : 0
+          marginLeft: originTitle ? 8 : 0,
         }}
       />
     </Popover>
@@ -389,9 +389,7 @@ let retList = [];
 for (
   let i = "2020-01-01";
   i <= moment().format("YYYY-MM-DD");
-  i = moment(i)
-    .add(1, "d")
-    .format("YYYY-MM-DD")
+  i = moment(i).add(1, "d").format("YYYY-MM-DD")
 ) {
   retList.push({ date: i, week: WEEK_LIST[moment(i).weekday()] });
 }
@@ -474,8 +472,8 @@ async function handleBatchDownload(selectList, zipName, stopLoading) {
   const zip = new JSZip();
   const cache = {};
   const promises = [];
-  await data.forEach(item => {
-    const promiseItem = getFile(item.url).then(dta => {
+  await data.forEach((item) => {
+    const promiseItem = getFile(item.url).then((dta) => {
       // dta为getFile处理过的arraybuffer格式的单个文件
       zip.file(item.fileName, dta, { binary: true }); // 逐个添加文件
       cache[item.fileName] = dta;
@@ -485,12 +483,12 @@ async function handleBatchDownload(selectList, zipName, stopLoading) {
   Promise.all(promises).then(() => {
     zip
       .generateAsync({ type: "blob" })
-      .then(content => {
+      .then((content) => {
         // 生成二进制流
         FileSaver.saveAs(content, zipName + ".zip"); // 利用file-saver保存文件
         stopLoading();
       })
-      .catch(err => {
+      .catch((err) => {
         stopLoading();
         message.error("网络出现了一点小问题，请稍后重试");
       });
@@ -500,16 +498,16 @@ async function handleBatchDownload(selectList, zipName, stopLoading) {
 const options = {
   method: "get",
   withCredentials: false,
-  responseType: "arraybuffer"
+  responseType: "arraybuffer",
 };
 // 获取文件的arraybuffer格式并传入进行打包准备
 function getFile(url) {
   return new Promise((resolve, reject) => {
     Axios(url, options)
-      .then(res => {
+      .then((res) => {
         resolve(res.data);
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error.toString());
       });
   });
@@ -532,16 +530,16 @@ export function exportFile(url, pageInfo, stopLoading) {
   const options = {
     method: "get",
     headers: {
-      token: `${window.sessionStorage.getItem("token")}`
+      token: `${window.sessionStorage.getItem("token")}`,
     },
     withCredentials: true,
-    responseType: "blob"
+    responseType: "blob",
     /* mode: "cors" */
   };
   // 请求地址
   let myUrl = `${myBaseURL}${url}`;
   let dataStr = "";
-  Object.keys(newPageInfo).forEach(key => {
+  Object.keys(newPageInfo).forEach((key) => {
     dataStr += key + "=" + newPageInfo[key] + "&";
   });
   if (dataStr !== "") {
@@ -550,7 +548,7 @@ export function exportFile(url, pageInfo, stopLoading) {
   }
   // 开始请求
   Axios(myUrl, options)
-    .then(res => {
+    .then((res) => {
       if (
         res.headers["content-type"] === "application/vnd.ms-excel;charset=utf-8"
       ) {
@@ -585,7 +583,7 @@ export function exportFile(url, pageInfo, stopLoading) {
       } else {
         // 报错处理
         let reader = new FileReader();
-        reader.onload = e => {
+        reader.onload = (e) => {
           let result = "";
           result = JSON.parse(e.target.result).msg;
           message.error(result);
@@ -594,7 +592,7 @@ export function exportFile(url, pageInfo, stopLoading) {
         stopLoading();
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.log("数据列导出报错:", err);
     });
 }
@@ -616,7 +614,7 @@ export function getResultMenu(myMenu, promiseMenu) {
       });
     });
   }
-  resultMenu = myMenu.filter(item => item.canShow);
+  resultMenu = myMenu.filter((item) => item.canShow);
 
   return resultMenu;
 }
@@ -632,7 +630,7 @@ export function getMenuId(name, menuTree) {
   let result = "";
   function showId(arr) {
     if (isArr(arr)) {
-      arr.forEach(item => {
+      arr.forEach((item) => {
         if (item.name === name) {
           result = item.id;
         } else if (isArrChild(item)) {

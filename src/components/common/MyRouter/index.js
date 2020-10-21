@@ -21,6 +21,7 @@ import GoodTea from "../../../pages/goodtea";
 import Query from "../../../pages/query";
 import UseCompany1 from "../../../pages/usecompany1";
 import Company from "../../../pages/company";
+import UseCompany10 from "../../../pages/usecompany10";
 
 export default {
   blankLayout: {
@@ -66,6 +67,11 @@ export default {
         path: "/usecompany1/:id",
         component: UseCompany1,
         name: "企业名单",
+      },
+      {
+        path: "/usecompany10/:id",
+        component: UseCompany10,
+        name: "曝光详情",
       },
       /* `````````````````````````````````````````````````````````````` */
       {

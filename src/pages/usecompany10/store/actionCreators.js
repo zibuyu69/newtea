@@ -4,7 +4,8 @@ export const mergeData = (data) => ({
   type: constants.MERGE_DATA,
   data,
 });
-export const getallData = (data) => ({
-  type: constants.GET_ALL_DATA,
+
+export const getAll = (data) => ({
+  type: constants.GET_ALL,
   data,
 });

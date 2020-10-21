@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import "./style.less";
 import * as actionCreators from "./store/actionCreators";
 import { Spin, Icon } from "antd";
-import { ImagePicker, WingBlank, SegmentedControl, Button } from "antd-mobile";
+import { ImagePicker, WingBlank, SegmentedControl, Toast } from "antd-mobile";
 
 import icon1 from "../../assets/query/icon1.png";
 import icon2 from "../../assets/query/icon2.png";
@@ -19,8 +19,10 @@ import icon9 from "../../assets/query/icon9.png";
 import bg from "../../assets/query/bg.png";
 
 function Query(props) {
-  const { loading, history } = props;
-
+  const { loading, history, allData } = props;
+  useEffect(() => {
+    props.getallData();
+  }, []);
   return (
     <div className="Query">
       <div className="cell">
@@ -78,21 +80,36 @@ function Query(props) {
       <div className="cell">
         <div className="cell_title">双江在行动</div>
         <div className="des8">
-          <div className="des9">
+          <div
+            className="des9"
+            onClick={() => {
+              Toast.info("服务热线：15896588542", 6);
+            }}
+          >
             <img
               src={icon6}
               style={{ marginBottom: "2vw", width: "8vw", height: "8vw" }}
             />
             服务热线
           </div>
-          <div className="des9">
+          <div
+            className="des9"
+            onClick={() => {
+              history.push(`/b/usecompany8`);
+            }}
+          >
             <img
               src={icon4}
               style={{ marginBottom: "2vw", width: "8vw", height: "8vw" }}
             />
             曝光台
           </div>
-          <div className="des9">
+          <div
+            className="des9"
+            onClick={() => {
+              history.push(`/b/usecompany9`);
+            }}
+          >
             <img
               src={icon5}
               style={{ marginBottom: "2vw", width: "8vw", height: "8vw" }}
@@ -123,10 +140,13 @@ function Query(props) {
         <div className="cell_title">精选资讯</div>
         <div className="des10">
           <div className="des11">
-            六安有个县,是药材之乡和茶叶之乡,地区生产总值161.25亿元
-            <div className="des12">2020-03-19</div>
+            {allData.title}
+            <div className="des12"> {allData.created_at}</div>
           </div>
-          <img src={bg} style={{ width: "45vw", height: "30vw" }} />
+          <img
+            src={allData.wechat_url}
+            style={{ width: "45vw", height: "30vw" }}
+          />
         </div>
       </div>
     </div>
@@ -134,15 +154,15 @@ function Query(props) {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  // state: state.registerReducer
+  ...state.queryReducer,
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
   mergeData: (data) => {
     dispatch({ type: data.type, payload: data.payload });
   },
-  /*  getallData: data => {
+  getallData: (data) => {
     dispatch(actionCreators.getallData(data));
-  } */
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Query));

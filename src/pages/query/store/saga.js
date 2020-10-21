@@ -1,30 +1,30 @@
 import apiUtil from "apiUtil/axios";
 import { put, takeEvery } from "redux-saga/effects";
 import * as constants from "./constants";
-// import { showErr, showSuccess } from "../../../common/tools";
+import { showErr, showSuccess } from "../../../common/tools";
 
 // 获得所有数据
 function* getAllData(action) {
-  /*   try {
+  try {
     const res = yield apiUtil.getAxios(
-      "/projectBudgetItem/getProjectBudgetInfo"
+      "/v1/content/getRecommendContent",
+      action.data
     );
-    if (res.data.code === 10000) {
+    if (res.data.code === 0) {
       yield put({
         type: constants.MERGE_DATA,
         payload: {
-          allData: res.data.data.list,
-          title: res.data.data.title,
-         }
+          allData: res.data.data,
+        },
       });
     } else {
-      showErr(res, "/projectBudgetItem/getProjectBudgetInfo");
+      showErr(res, "/v1/content/getRecommendContent");
     }
   } catch (error) {
-     console.error(error);
-  } */
+    console.error(error);
+  }
 }
 
 export default function* ExpenditureBudgetConfigurationSagas() {
-  // yield takeEvery(constants.GET_ALL_DATA, getAllData);
+  yield takeEvery(constants.GET_ALL_DATA, getAllData);
 }

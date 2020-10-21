@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./style.less";
-import * as actionCreators from "../usecompany/store/actionCreators";
+import * as actionCreators from "./store/actionCreators";
 import { Select, Icon, Divider, Input, Button } from "antd";
 import { NavBar, WingBlank, SegmentedControl, ImagePicker } from "antd-mobile";
 import * as CONST from "./CONST";
@@ -29,7 +29,7 @@ function UseCompany9(props) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    props.getAll();
+    /* props.getAll(); */
   }, []);
 
   // 跳转
@@ -55,6 +55,10 @@ function UseCompany9(props) {
   const onChange = (files, type, index) => {
     console.log(files, type, index);
     setData(files);
+  };
+  // 点击提交
+  const toSubmit = () => {
+    props.toSubmit();
   };
   return (
     <div className="UseCompany9">
@@ -87,7 +91,7 @@ function UseCompany9(props) {
           />
           <TextArea placeholder="举报说明" rows={4} />
           <div className="bo_button">
-            <Button style={{ width: "100%" }} type="primary">
+            <Button style={{ width: "100%" }} type="primary" onClick={toSubmit}>
               提交
             </Button>
             <span style={{ fontSize: "14px", color: "#898989" }}>
@@ -103,7 +107,7 @@ function UseCompany9(props) {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  ...state.UseCompanyReducer,
+  ...state.UseCompany9Reducer,
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
   mergeData: (data) => {
@@ -111,6 +115,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   getAll: (data) => {
     dispatch(actionCreators.getAll(data));
+  },
+  toSubmit: (data) => {
+    dispatch(actionCreators.toSubmit(data));
   },
 });
 

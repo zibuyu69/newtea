@@ -1,7 +1,8 @@
 import * as constants from "./constants";
 
 const defaultState = {
-  loading: true
+  loading: true,
+  allData: {},
 };
 
 export default (state = defaultState, action) => {

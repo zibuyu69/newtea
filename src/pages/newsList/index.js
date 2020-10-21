@@ -28,6 +28,14 @@ function NewsList(props) {
   let car;
   useEffect(() => {
     props.getallData({ type: match.params.id, ...pageInfo });
+    return () => {
+      props.mergeData({
+        type: "newListReducer/MERGE_DATA",
+        payload: {
+          allData: [],
+        },
+      });
+    };
   }, [match.params.id]);
 
   const gridStyle = {
@@ -62,6 +70,15 @@ function NewsList(props) {
         <Card.Grid style={gridStyle} onClick={() => jump(3)}>
           晒红
         </Card.Grid>
+        <Card.Grid style={gridStyle} onClick={() => jump(4)}>
+          行业动态
+        </Card.Grid>
+        <Card.Grid style={gridStyle} onClick={() => jump(6)}>
+          政府公告
+        </Card.Grid>
+        <Card.Grid style={gridStyle} onClick={() => jump(7)}>
+          春茶报告
+        </Card.Grid>
       </Card>
     );
   };
@@ -91,15 +108,18 @@ function NewsList(props) {
           onLeftClick={() => {
             history.go(-1);
           }}
-          rightContent={[
-            <Icon
+          rightContent={
+            [
+              /*             <Icon
               key="sync"
               type="sync"
               onClick={() => {
                 props.getallData({ category: match.params.id });
               }}
             />,
-          ]}
+ */
+            ]
+          }
         >
           <Tooltip
             placement="bottom"
