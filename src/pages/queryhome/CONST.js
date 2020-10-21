@@ -6,7 +6,7 @@ export const nameList = [
     to: "usecompany",
   },
   {
-    name: "福鼎白茶QS（SC）许可证企业",
+    name: "SC认证企业名录",
     icon: "contacts",
     color: "#ffe58f",
     to: "usecompany1",

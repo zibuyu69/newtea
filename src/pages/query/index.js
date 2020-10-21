@@ -45,7 +45,7 @@ function Query(props) {
             <div
               className="des3"
               onClick={() => {
-                history.push(`/b/usecompany1`);
+                history.push(`/b/usecompany1/1`);
               }}
             >
               <img src={icon3} style={{ marginBottom: "2vw" }} />
@@ -58,7 +58,12 @@ function Query(props) {
       {/* `````````````````````````````````````` */}
       <div className="cell">
         <div className="cell_title">诚信榜单</div>
-        <div className="des5">
+        <div
+          className="des5"
+          onClick={() => {
+            history.push(`/b/usecompany1/2`);
+          }}
+        >
           <div>
             <img
               src={icon8}
@@ -106,7 +111,7 @@ function Query(props) {
               style={{ marginRight: "2vw", width: "8vw", height: "8vw" }}
             />
             <div>
-              优质企业白名单
+              诚挚邀请您评价
               <div className="des6">您最喜爱的勐库大叶种茶品牌</div>
             </div>
           </div>

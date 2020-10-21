@@ -58,7 +58,12 @@ function BigHome(props) {
       </div>
       <div className="big_bottom">
         <div className="bo_icons">
-          <div className="icon">
+          <div
+            className="icon"
+            onClick={() => {
+              history.push("/b/newsList/4");
+            }}
+          >
             <img src={icon1} style={{ width: "100%", height: "100%" }} />
             <div className="icon_name">行业动态</div>
           </div>
@@ -95,11 +100,21 @@ function BigHome(props) {
             <div className="bo_des">查询您想要的</div>
           </div>
           <div className="bg_right">
-            <div className="bg2">
+            <div
+              className="bg2"
+              onClick={() => {
+                history.push("/b/newsList/6");
+              }}
+            >
               <div className="bo_title">政府公告栏</div>
               <div className="bo_des">政府实时公告信息</div>
             </div>
-            <div className="bg3">
+            <div
+              className="bg3"
+              onClick={() => {
+                history.push("/b/newsList/7");
+              }}
+            >
               <div className="bo_title">春茶报告</div>
               <div className="bo_des">最新春茶新闻</div>
             </div>

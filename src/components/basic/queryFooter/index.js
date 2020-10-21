@@ -14,14 +14,12 @@ function QueryFooter(props) {
 
   return (
     <div className="QueryFooter">
-      <div className="line">福鼎市茶产业发展领导小组 </div>
-      <div className="line">福鼎市茶产业发展服务中心 </div>
-      <div className="line">福鼎市茶业协会 </div>
-      <div className="line">印象福鼎-技术支持 </div>
+      <div className="line">茶产业发展领导小组 </div>
+      <div className="line">茶产业发展服务中心 </div>
+      <div className="line">茶业协会 </div>
+      <div className="line">技术支持 </div>
       <Divider dashed />
-      <div className="line">
-        Copyright © 2017-2019 福鼎白茶 闽ICP备15003660号{" "}
-      </div>
+      <div className="line">Copyright © 2017-2019 闽ICP备15003660号 </div>
     </div>
   );
 }

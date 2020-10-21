@@ -17,11 +17,25 @@ function UseCompany1(props) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    props.getAll({
-      page: 1,
-      pageSize: 9999,
-    });
-  }, []);
+    if (match.params.id === "1") {
+      props.getAll({
+        page: 1,
+        pageSize: 9999,
+        is_scc: 1,
+      });
+    } else {
+      props.getAll({
+        page: 1,
+        pageSize: 9999,
+        is_whitelist: 1,
+      });
+    }
+  }, [match.params.id]);
+
+  let title = "食品（茶叶）生产许可【QS（SC）】企业名单";
+  if (match.params.id === "2") {
+    title = "优质企业白名单";
+  }
 
   // 跳转
   const toJump = (item) => {
@@ -84,7 +98,7 @@ function UseCompany1(props) {
             })}
           </Select>
           <div className="title">
-            食品（茶叶）生产许可【QS（SC）】企业名单
+            {title}
             <span style={{ fontSize: "2vw", color: "#898989" }}>
               （排名不分先后）
             </span>

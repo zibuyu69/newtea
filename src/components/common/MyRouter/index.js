@@ -62,6 +62,11 @@ export default {
         component: NewsList,
         name: "新闻列表",
       },
+      {
+        path: "/usecompany1/:id",
+        component: UseCompany1,
+        name: "企业名单",
+      },
       /* `````````````````````````````````````````````````````````````` */
       {
         path: "/queryhome",
@@ -78,11 +83,7 @@ export default {
         component: UseCompany,
         name: "授权企业",
       },
-      {
-        path: "/usecompany1",
-        component: UseCompany1,
-        name: "授权企业",
-      },
+
       {
         path: "/usecompany2",
         component: UseCompany2,
