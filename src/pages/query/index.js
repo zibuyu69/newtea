@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import "./style.less";
 import * as actionCreators from "./store/actionCreators";
-import { Spin, Icon } from "antd";
+import { Alert, Icon, message } from "antd";
 import { ImagePicker, WingBlank, SegmentedControl, Toast } from "antd-mobile";
 
 import icon1 from "../../assets/query/icon1.png";
@@ -23,6 +23,11 @@ function Query(props) {
   useEffect(() => {
     props.getallData();
   }, []);
+
+  // 点击跳转
+  const jump = () => {
+    window.open(allData.wechat_url, "_self");
+  };
   return (
     <div className="Query">
       <div className="cell">
@@ -83,7 +88,8 @@ function Query(props) {
           <div
             className="des9"
             onClick={() => {
-              Toast.info("服务热线：15896588542", 6);
+              console.log("222");
+              message.info("服务热线:13658589954");
             }}
           >
             <img
@@ -138,7 +144,7 @@ function Query(props) {
       {/* ········································ */}
       <div className="cell">
         <div className="cell_title">精选资讯</div>
-        <div className="des10">
+        <div className="des10" onClick={jump}>
           <div className="des11">
             {allData.title}
             <div className="des12"> {allData.created_at}</div>
