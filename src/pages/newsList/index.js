@@ -3,15 +3,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./style.less";
 import * as actionCreators from "./store/actionCreators";
-import { Spin, Button, Icon, Tooltip, Card, Typography } from "antd";
-import {
-  NavBar,
-  Grid,
-  Pagination,
-  Modal,
-  WhiteSpace,
-  WingBlank,
-} from "antd-mobile";
+import { Pagination, Button, Icon, Tooltip, Card, Typography } from "antd";
+import { NavBar, Grid, Modal, WhiteSpace, WingBlank } from "antd-mobile";
 
 import img1 from "../../assets/newList/普洱知识.jpg";
 import img2 from "../../assets/newList/普洱资讯.jpg";
@@ -89,13 +82,9 @@ function NewsList(props) {
   };
 
   // 点击翻页
-  const changePage = (type) => {
-    let newPageInfo = pageInfo;
-    if (type === 1) {
-      newPageInfo.page = pageInfo.page - 1;
-    } else {
-      newPageInfo.page = pageInfo.page + 1;
-    }
+  const changePage = (page, pageSize) => {
+    let newPageInfo = { page, pageSize };
+
     props.getallData({ type: match.params.id, ...newPageInfo });
   };
 
@@ -160,23 +149,10 @@ function NewsList(props) {
       </div>
       <div className="NewsList_bottom">
         <Pagination
-          total={pageInfo.total}
-          className="custom-pagination-with-icon"
           current={pageInfo.page}
-          locale={{
-            prevText: (
-              <span className="arrow-align-prev" onClick={() => changePage(1)}>
-                <Icon type="left" />
-                上一页
-              </span>
-            ),
-            nextText: (
-              <span className="arrow-align" onClick={() => changePage(2)}>
-                下一页
-                <Icon type="right" />
-              </span>
-            ),
-          }}
+          total={pageInfo.total}
+          pageSize={pageInfo.pageSize}
+          onChange={changePage}
         />
       </div>
     </div>
@@ -199,3 +175,25 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(withRouter(NewsList));
+
+/*
+<Pagination
+total={pageInfo.total}
+className="custom-pagination-with-icon"
+current={pageInfo.page}
+pageSize={pageInfo.page}
+locale={{
+  prevText: (
+    <span className="arrow-align-prev" onClick={() => changePage(1)}>
+      <Icon type="left" />
+      上一页
+    </span>
+  ),
+  nextText: (
+    <span className="arrow-align" onClick={() => changePage(2)}>
+      下一页
+      <Icon type="right" />
+    </span>
+  ),
+}}
+/> */
