@@ -110,7 +110,7 @@ function NewsList(props) {
             ]
           }
         >
-          <Tooltip
+          {/*    <Tooltip
             placement="bottom"
             title={allMenu}
             overlayClassName="NewsList_tooltip"
@@ -120,7 +120,7 @@ function NewsList(props) {
               选择分类
               <Icon type="caret-down" style={{ marginLeft: "8px" }} />
             </div>
-          </Tooltip>
+          </Tooltip> */}
         </NavBar>
       </div>
       <div className="content">
