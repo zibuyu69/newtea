@@ -79,7 +79,15 @@ function Company(props) {
           {/* 111 */}
           <div className="title">公司简介</div>
           <Divider />
-          <div className="info_text">{allData.company_profile}</div>
+          <div>
+            {/* <div
+              dangerouslySetInnerHTML={{ __html: allData.company_profile }}
+            /> */}
+
+            <pre>{allData.company_profile}</pre>
+
+            {/*  {allData.company_profile} */}
+          </div>
           {/* 22 */}
           <div className="title">{"荣誉展示"} </div>
           <Divider />
