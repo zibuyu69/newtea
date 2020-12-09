@@ -28,13 +28,18 @@ export default {
     path: "/b",
     layout: BlankLayout,
     route: [
-      {
+      /*   {
         path: "/login",
         component: Login,
         name: "登录页",
       },
       {
         path: "/bighome",
+        component: BigHome,
+        name: "第二版登录页",
+      }, */
+      {
+        path: "/login",
         component: BigHome,
         name: "第二版登录页",
       },
