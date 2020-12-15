@@ -3,15 +3,10 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./style.less";
 import * as actionCreators from "./store/actionCreators";
+import * as ListActionCreators from "../newsList/store/actionCreators";
+
 import { Spin, Button, Icon, Tooltip, Input, Typography } from "antd";
-import {
-  NavBar,
-  Grid,
-  Pagination,
-  Modal,
-  WhiteSpace,
-  WingBlank,
-} from "antd-mobile";
+
 import top1 from "../../assets/bighome/top.png";
 import icon1 from "../../assets/bighome/icon1.png";
 import icon2 from "../../assets/bighome/icon2.png";
@@ -19,15 +14,49 @@ import icon3 from "../../assets/bighome/icon3.png";
 import icon4 from "../../assets/bighome/icon4.png";
 import icon5 from "../../assets/bighome/icon5.png";
 
-import bg1 from "../../assets/bighome/bg1.png";
-import bg2 from "../../assets/bighome/bg2.png";
-import bg3 from "../../assets/bighome/bg3.png";
 import bg4 from "../../assets/bighome/bg4.png";
 
-const { Paragraph } = Typography;
+import wx from "weixin-js-sdk";
 
 function BigHome(props) {
-  const { loading, history, match } = props;
+  const { loading, history, match, config, once } = props;
+
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    /*  if (!once) {
+      console.log("once", once);
+      props.mergeData({
+        type: "newListReducer/MERGE_DATA",
+        payload: { once: true },
+      });
+      self.location.href = "http://localhost:3000/";
+    } */
+    props.getConfig({ url: "http://www.puer.pro/b/login" });
+  }, []);
+
+  useEffect(() => {
+    if (config.timestamp) {
+      wx.config(config);
+    }
+  }, [config]);
+
+  const startTwo = () => {
+    console.log("进入");
+
+    wx.scanQRCode({
+      needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+      scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+      success: function (res) {
+        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+        console.log("成功", res);
+      },
+    });
+  };
+  //
+  const changeValue = (e) => {
+    setSearchValue(e.target.value);
+  };
 
   return (
     <div className="BigHome">
@@ -39,17 +68,29 @@ function BigHome(props) {
           <Input
             className="top_search"
             placeholder="一键溯源"
+            value={searchValue}
+            onChange={changeValue}
             prefix={
-              <Icon
-                type="search"
-                style={{ color: "rgba(0,0,0,.25)", fontSize: "5vw" }}
-              />
+              <div
+                onClick={() => {
+                  window.open(
+                    `http://sy.ynlcdxzqb.cn/preview/index?publicCode=${searchValue}`,
+                    "_self"
+                  );
+                }}
+              >
+                <Icon
+                  type="search"
+                  style={{ color: "rgba(0,0,0,.25)", fontSize: "5vw" }}
+                />
+              </div>
             }
             suffix={
-              <Tooltip title="Extra information">
+              <Tooltip title="扫描二维码">
                 <Icon
                   type="scan"
                   style={{ color: "rgba(0,0,0,.45)", fontSize: "5vw" }}
+                  onClick={startTwo}
                 />
               </Tooltip>
             }
@@ -71,9 +112,14 @@ function BigHome(props) {
             <img src={icon2} style={{ width: "100%", height: "100%" }} />
             <div className="icon_name">直播</div>
           </div>
-          <div className="icon">
+          <div
+            className="icon"
+            onClick={() => {
+              window.open("http://sy.ynlcdxzqb.cn/wantTrace", "_self");
+            }}
+          >
             <img src={icon3} style={{ width: "100%", height: "100%" }} />
-            <div className="icon_name">茶山导览</div>
+            <div className="icon_name"> 一键溯源</div>
           </div>
           <div className="icon">
             <img src={icon4} style={{ width: "100%", height: "100%" }} />
@@ -129,7 +175,7 @@ function BigHome(props) {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  // state: state.registerReducer
+  ...state.newListReducer,
 });
 const mapDispatchToProps = (dispatch, ownProps) => ({
   mergeData: (data) => {
@@ -137,6 +183,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   getallData: (data) => {
     dispatch(actionCreators.getallData(data));
+  },
+  getConfig: (data) => {
+    dispatch(ListActionCreators.getConfig(data));
   },
 });
 

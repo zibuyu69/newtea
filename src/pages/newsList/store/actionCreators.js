@@ -9,3 +9,9 @@ export const getallData = (data) => ({
   type: constants.GET_ALL_DATA,
   data,
 });
+
+// 首页config
+export const getConfig = (data) => ({
+  type: constants.GET_CONFIG,
+  data,
+});

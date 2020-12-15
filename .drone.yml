@@ -5,13 +5,14 @@ name: default
 
 steps:
 - name: build
-  image: node
+  image: node:14.15.1-alpine3.10
   commands:
     - npm install
     - npm run buildPro
     - cp -r -f ./build  /target/
     - cp -r -f ./Dockerfile /target/
     - cp -r -f ./nginx.conf /target/
+    - cp -r -f ./MP_verify_uxdNmWDkvn2GWZkl.txt /target/
   volumes:
   - name: nodemodules
     path: /drone/src/node_modules

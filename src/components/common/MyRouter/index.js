@@ -141,6 +141,11 @@ export default {
     path: "",
     layout: BasicLayout,
     route: [
+      /*    {
+        path: "/",
+        component: BigHome,
+        name: "第二版登录页",
+      }, */
       {
         path: "/home",
         component: Home,

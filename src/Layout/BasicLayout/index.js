@@ -28,6 +28,7 @@ function BasicLayout(props) {
       </div>
     );
   } else {
+    /* self.location.href = "http://localhost:3000/"; */
     return <Redirect to="/b/login" />;
   }
 }
