@@ -31,6 +31,35 @@ function* getAllData(action) {
   }
 }
 
+// 获得所有数据
+function* getConfig(action) {
+  try {
+    const res = yield apiUtil.getAxios("/v1/wechatJs/config", action.data);
+    if (res.data.code === 0) {
+      let data = {
+        appId: res.data.data.config.app_id,
+        nonceStr: res.data.data.config.nonce_str,
+        timestamp: res.data.data.config.timestamp,
+        signature: res.data.data.config.signature,
+
+        jsApiList: ["scanQRCode"],
+        debug: false,
+      };
+      yield put({
+        type: constants.MERGE_DATA,
+        payload: {
+          config: data,
+        },
+      });
+    } else {
+      showErr(res, "/v1/content/getContentByCategory");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export default function* ExpenditureBudgetConfigurationSagas() {
   yield takeEvery(constants.GET_ALL_DATA, getAllData);
+  yield takeEvery(constants.GET_CONFIG, getConfig);
 }

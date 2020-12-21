@@ -7,6 +7,10 @@ const defaultState = {
     pageSize: 10,
   },
   allData: [],
+
+  // 首页config
+  config: {},
+  once: false,
 };
 
 export default (state = defaultState, action) => {
