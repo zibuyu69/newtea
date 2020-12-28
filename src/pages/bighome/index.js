@@ -75,7 +75,7 @@ function BigHome(props) {
         <img src={top1} style={{ width: "100%", height: "65vw" }} />
         <div className="top_des">
           <div className="title">好茶，在双江</div>
-          <div className="des">这里是优质勐库大叶种茶的发源地</div>
+          <div className="des">这里是优质勐库大叶种茶的发源地1</div>
           <Input
             className="top_search"
             placeholder="一键溯源"
